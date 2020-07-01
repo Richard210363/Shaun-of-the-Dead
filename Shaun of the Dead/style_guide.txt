@@ -1,0 +1,20 @@
+This is a style guide for naming parts of a Python application
+
+There are a number of guides on the web that mostly agree with each other, this is taken from those with the arguing removed
+
+Types of case:
+snake_case: lower case with underscores between words
+CamelCase: Words start in uppercase and proceed in lower case. Words are concatinated. Capitalize all letters of an abbreviation (e.g. HTTPServer)
+FULLY_CAPITALIZED  Upper case with underscores between words
+
+Useage:
+Module and file names:- snake_case
+Classes:- CamelCase
+Variables:- snake_case
+Method and functions:- snake_case
+ConstantS: FULLY_CAPITALIZED
+Folders: CamelCase 
+
+There's more but this will do for now.
+If you really want to lose your mind then the Python.org style guide is here:
+https://www.python.org/dev/peps/pep-0008/

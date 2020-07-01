@@ -1,0 +1,118 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>950ad552-2108-4017-849f-f131cea26f12</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Main\start_up.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>Shaun of the Dead</Name>
+    <RootNamespace>Shaun of the Dead</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DataManagement\game_start_manager.py" />
+    <Compile Include="Entities\bullet.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\enemy.py" />
+    <Compile Include="DataManagement\game_state_manager.py" />
+    <Compile Include="Entities\treasure.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListManagement\wall_block_list.py" />
+    <Compile Include="ListManagement\enemy_list.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Main\shaun_of_the_dead.py" />
+    <Compile Include="Main\start_up.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\shaun_of_the_dead_24.py" />
+    <Compile Include="OldCode\shaun_of_the_dead_23.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-10 Working.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\Shaun_of_the_Dead-09.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-08.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-07.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-06.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-05.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-04.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-03.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-02.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-01.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-11.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\Shaun_of_the_Dead-12.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\Shaun_of_the_Dead-13.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\Shaun_of_the_Dead-14.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\player.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-16.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead-15.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\Shaun_of_the_Dead-17.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OldCode\shaun_of_the_dead_22.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead_21.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead_20.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead_19.py" />
+    <Compile Include="OldCode\Shaun_of_the_Dead_18.py" />
+    <Compile Include="ResourceManagement\sound_effects.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_database.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\wall_block.py" />
+    <Compile Include="Tests\test_startup.py" />
+    <Compile Include="UserInterface\register_new_user.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="style_guide.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataManagement\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Main\" />
+    <Folder Include="ListManagement\" />
+    <Folder Include="UserInterface\" />
+    <Folder Include="Tests\" />
+    <Folder Include="ResourceManagement\" />
+    <Folder Include="OldCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
