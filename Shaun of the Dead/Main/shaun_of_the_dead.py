@@ -173,10 +173,11 @@ class ShaunOfTheDead(object):
 #Everything below line this is the program that does things
 
 
-    def start(self):
-        
-        #Create level
-        self.setup_level(self.level_1)
+    def start(self, start_mode):
+
+        if start_mode.upper()== "R":
+            #Create level
+            self.setup_level(self.level_1)
 
         #Listen to keyboard input
         turtle.listen()
