@@ -53,10 +53,13 @@ class GameStartManager(object):
             print("[X] Error Saving Values to Database : " + str(e))
             return False
 
-    def get(self , key):
+    def get(self , object_key, level_key):
         try:
             self.loadMemoryVersionOfDatabaseFromFile()
-            return self.memoryVersionOfDatabase[key]
+            Levels = self.memoryVersionOfDatabase["Levels"]
+            level = Levels[level_key]
+            #level = Levels["1"]
+            return level[object_key]
         except KeyError:
             print("No Value Can Be Found for " + str(key))
             return False

@@ -4,7 +4,7 @@ import os
 class GameStateManager(object):
     def __init__(self , location):
         self.location = os.path.expanduser(location)
-        self.initialiseDatabase()
+        #self.initialiseDatabase()
         self.load(self.location)
         self.saveMemoryVersionOfDatabaseToFile()
 
@@ -15,14 +15,14 @@ class GameStateManager(object):
        if os.path.exists(location):
            self.loadMemoryVersionOfDatabaseFromFile()
        else:
-           #self.initialiseDatabase() #new
+           self.initialiseDatabase() #new
            self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  
        return True
 
     def initialiseDatabase(self): #new
         try:
             self.resetdb()        
-            self.memoryVersionOfDatabase={"Zombies":[]}
+            self.memoryVersionOfDatabase={"Zombies":[], "Current_Level": "1"}
             self.saveMemoryVersionOfDatabaseToFile()
         except Exception as e:
             print("[X] Error Saving Values to Database : " + str(e))

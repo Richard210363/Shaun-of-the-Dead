@@ -4,10 +4,10 @@ import DataManagement.game_state_manager as game_state_manager
 
 class EnemyList(object):
     """description of class"""
-    def __init__(self, gameStartManager, gameStateManager):
+    def __init__(self, gameStartManager, gameStateManager, level_key):
         self.gameStartManager = gameStartManager
         self.gameStateManager = gameStateManager
-        self.enemies = self.gameStartManager.get("enemies")  #Gets Value
+        self.enemies = self.gameStartManager.get("Enemies", level_key)  #Gets Value
         self.enemies_list = []
 
     def create_enemies_list(self):
