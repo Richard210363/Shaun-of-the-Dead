@@ -91,6 +91,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Notes.txt" />
     <Content Include="style_guide.txt" />
   </ItemGroup>
   <ItemGroup>

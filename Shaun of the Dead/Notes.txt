@@ -1,0 +1,405 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This is the what we are going to do
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Add GitHub
+
+
+
+Street level
+2 shops
+Cornettos is Life
+Zombies to attack after visit to shop
+no weapons
+Door to the house
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This section is stuff to do later
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This is the Done section
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Add DatabaseManagement.database_manager.py as module
+Convert DataManagement to a module
+
+Look at Scope and Import Tests
+
+
+We need an import to create an instence of a class
+We do no tneed an Import to use an instence of a class
+
+
+
+SOTD.py
+=======================
+What's wrong with player being purple?
+We are using the Module not the Class.
+
+Add _ after the As name to differetniate
+===============================
+
+Enemy.py
+=======================
+Put pen up and goto back in the constructor
+===============================
+
+Lives and coordinates
+The values in the database are strings.  This is wrong
+
+How to shut down nicely:
+Q for quit
+
+SOTD.py
+=======================
+#new in code
+=======================
+Database first
+Code first
+
+We are going databse first
+
+Split between data and database methods
+
+n-tier
+
+Make a database
+Read the data base in a test
+SOTD.py
+=======================
+change 107, 108
+===============================
+
+----------------------------------------------------------------------------------------
+
+
+Look at how we've split off into folders and why. Code is read far more often than it's written
+
+Look at changes to Import:
+SOTD Line 15
+import ResourceManagement.sound_effects as sound_effect  How does Python know we've done this?
+
+Look at making new instances:
+SOTD Line 120-121
+treasure_bullets = treasure.Treasure_Bullets()
+treasure_lives = treasure.Treasure_Lives()
+
+Talk about naming conventions
+
+Bug hunting exercise:
+We can't fire 2 bullets
+Look at SCOPE
+
+        for bullet in bullets:
+            if bullet.is_collision(enemy):
+                bullet.destroy()
+                enemy.wound()
+
+        for existing_bullet in bullets:
+            if existing_bullet.is_collision(enemy):
+                existing_bullet.destroy()
+                enemy.wound()
+
+Look at
+register_new_user
+
+
+
+
+
+
+
+
+Files used
+Shaun_of_the_Dead_22 - Start.py
+Player.py
++++++++++++++++++++++++++++++++++++++++++++
+Set TestDataBase as startup
+Run code and store Holiday in dB
+
+Set SOTD 22 to startup----------------------------------------------------------------------------------------
+How to save State?
+Start with Bullets
+
+SOTD.py
+=======================
+import GameStateManager
+
+#Initialize the GameStateManager
+gameStateManager = GameStateManage.GameStateManager("./ShaunOfTheDeadGameState.db")  #new
+===============================
+
+SOTD
+Line 289 change to UnLimited
+Add line 291:
+===============================
+gameStateManager.set("bullets" , player.bullets) #new
+===============================
+
+Run and get bullets
+Look in dB
+Show how we are saving "bullets" to Holiday HOW?
+
+Delete dB
+
+Add Player to database
+Player.py
+Add line 15:
+===============================
+gameStateManager = GameStateManager.GameStateManager("./ShaunOfTheDeadGameState.db")  #new
+===============================
+Add setting name to Shaun to Player.py
+===============================
+# gameStateManager.set("name" , "Shaun") #new
+Line 30ish Under set walls
+===============================
+
+Run to break point on create Shaun.
+Look at database;  There is Shaun
+Get bullets
+Open dB where is the name Shaun?
+
+Oh, we used 2 different GameStateManager instences.
+
+Pass gameStateManager to Player.py
+SOTH.py
+===============================
+Change :
+player = Player.Player()
+to
+player = Player.Player(gameStateManager)
+===============================
+Player.py
+===============================
+remove:
+#Initialize the GameStateManager
+gameStateManager = GameStateManager.GameStateManager("./ShaunOfTheDeadGameState.db")  #new
+
+Add to constructor
+def __init__(self, gameStateManager):
+===============================
+
+
+Put break point on Line 17 of GameStateManager to show we have a dictionary
+
+Work with Holiday to add Delete Bullets
+Work with Holiday to add Delete Lives
+
++++++++++++++++++++++++++++++++++++++++++++
+Resulting Files
+Shaun_of_the_Dead_22 - Start.py
+Player - Shaun Gets Bullets
++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------------------------------------------------------
+
+
+
+
+----------------------------------------------------------------------------------------
+Add Multiple records for Zombies
+
+
+Pass Gamestate... to Enemy:
+
+Enemy.py
+===============================
+def __init__(self, x, y, gameStateManager):
+
+gameStateManager.set("name" , self.name) #new
+===============================
+
+SOTD.py Lines 235, 236
+===============================
+if character == 'E':
+    enemies.append(Enemy.Enemy(screen_x, screen_y,gameStateManager))
+===============================
+
+See how this won't worK as it over writes Shaun  
+See how moving Shaun gives the Zombies bullets
+Explain about records as opposed to single lines
+
+
+Switch to GameStateManager_Extended
+SOTD.py
+===============================
+import GameStateManager_Extended
+
+#Initialize the GameStateManager
+gameStateManager = GameStateManager_Extended.GameStateManager("./ShaunOfTheDeadGameState.db")  #new
+===============================
+
+GameStateManager_Extended .py
+Look at changes to def load(...):
+Look at  def initialiseDatabase(self):
+
+Line 28 to make an empty list
+
+Enemy.py
+===============================
+Change Line 32 from Set to Append
+
+gameStateManager.appendZombie(self.name) #new
+===============================
+
+Look at the dB file
+We have a LIST of KEY VALLUE pairs
+But we also have Shaun stuck at the end?
+
+Lets not kill zombies.  Let's wound them 
+So we need to update a specific zombie like we did with bullets.
+
+SOTD 22.py
+===============================
+Change line:
+enemy.destroy()
+to
+enemy.wound()
+===============================
+
+Enemy.py
+===============================
+Add method
+
+def wound(self):
+        self.lives -=1
+        gameStateManager.updateZombie(self.name,self.lives)
+===============================
+
+NOTE that gameStateManager is not the proper colour
+Make a self.gameStateManager
+
+Enemy.py
+===============================
+Add:
+self.gameStateManager=gameStateManager
+
+Change
+gameStateManager.updateZombie(self.name,self.lives)
+to
+self.gameStateManager.updateZombie(self.name,self.lives)
+===============================
+
+Thoughts:
+Have we stored the Zombies data so we can restart the game?
+No, because we gave the Zombies a random number so the New zombies won't match the old zombies.
+Se we must always start by reading the database to get the Zombie IDs.
+But do we want to have Initial zombies in the database AND initial Zombies in the map?
+We then have to reconcile the 2 bits of data into 1 object.
+So we might as well store the coordonates in the dB as well and use that to initilize the Zombies instead of an E in the map
+
+
+
+What is JSON?
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bugs
+=======================================================
+03-32
+04-96
+07-45
+07-52
+10-106 we are setting = to object.  We should set = to value  
+i.e. bullet.x = self.xcor() and not bullet.x = self.xcor 
+Bullets are moving further so the collision detection is failing
