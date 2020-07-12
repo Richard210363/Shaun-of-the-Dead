@@ -31,6 +31,9 @@
     <Compile Include="Entities\treasure.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ListManagement\players_list.py" />
+    <Compile Include="ListManagement\treasure_bullets_list.py" />
+    <Compile Include="ListManagement\treasure_lives_list.py" />
     <Compile Include="ListManagement\wall_block_list.py" />
     <Compile Include="ListManagement\enemy_list.py">
       <SubType>Code</SubType>

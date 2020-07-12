@@ -12,9 +12,9 @@ import DataManagement.game_state_manager as game_state_manager_
 import DataManagement.game_start_manager as game_start_manager_
 import ListManagement.enemy_list as enemy_list_
 import ListManagement.wall_block_list as wall_block_list_
-
-#SOTDxxx
-#This is from Richard
+import ListManagement.players_list as players_list_
+import ListManagement.treasure_lives_list as treasure_lives_list_
+import ListManagement.treasure_bullets_list as treasure_bullets_list_
 
 class ShaunOfTheDead(object):
     """description of class"""
@@ -50,11 +50,15 @@ class ShaunOfTheDead(object):
         self.level_key = self.gameStateManager.get("Current_Level")
         self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager, self.level_key)
         self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager, self.level_key)
+        self.players_list = players_list_.PlayersList(self.gameStartManager, self.gameStateManager, self.level_key)
+        self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)
+        self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStartManager, self.gameStateManager, self.level_key)
 
         #Create Lists
         self.enemy_list.create_enemies_list()
         self.walls = []
         self.bullets = []
+        self.players = []
 
         self.player.walls = self.walls
 
@@ -115,6 +119,25 @@ class ShaunOfTheDead(object):
             self.wallBlock.stamp()
             self.walls.append((screen_x,screen_y))
 
+    def drawsPlayers(self):
+        for player in self.players_list.players_list:
+            screen_x=player[0]
+            screen_y=player[1]
+            self.player.goto(screen_x, screen_y)
+            self.players.append((screen_x,screen_y))
+
+    def drawsTreasureLives(self):
+        for treasure_life in self.treasure_lives_list.treasure_lives_list:
+            screen_x=treasure_life[0]
+            screen_y=treasure_life[1]
+            self.treasure_lives.goto(screen_x, screen_y)
+
+    def drawsTreasureBullets(self):
+        for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
+            screen_x=treasure_bullet[0]
+            screen_y=treasure_bullet[1]
+            self.treasure_bullets.goto(screen_x, screen_y)
+
     def quit_game(self):
         self.quit = True
 
@@ -125,6 +148,9 @@ class ShaunOfTheDead(object):
     #Define creating a level
     def setup_level(self, level):
         self.drawsWalls()
+        self.drawsPlayers()
+        self.drawsTreasureLives()
+        self.drawsTreasureBullets()
         for y in range(len(level)):
             for x in range(len(level[y])):
                 character = level[y][x]
@@ -132,14 +158,14 @@ class ShaunOfTheDead(object):
                 screen_x = -288 + (x * 24)
                 screen_y = 288 - (y * 24)
 
-                if character == "P":
-                    self.player.goto(screen_x, screen_y)
+                #if character == "P":
+                #    self.player.goto(screen_x, screen_y)
 
-                if character == "T":
-                    self.treasure_bullets.goto(screen_x, screen_y)
+                #if character == "T":
+                #    self.treasure_bullets.goto(screen_x, screen_y)
 
-                if character == "L":
-                    self.treasure_lives.goto(screen_x, screen_y)
+                #if character == "L":
+                #    self.treasure_lives.goto(screen_x, screen_y)
            
 
 #Everything above line this is preparing objects
