@@ -13,6 +13,8 @@ import DataManagement.game_start_manager as game_start_manager_
 import ListManagement.enemy_list as enemy_list_
 import ListManagement.wall_block_list as wall_block_list_
 
+#SOTD
+
 class ShaunOfTheDead(object):
     """description of class"""
 
