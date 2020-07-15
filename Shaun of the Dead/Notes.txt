@@ -3,8 +3,10 @@ This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Add GitHub
+Quick bug hunt on why Shaun can walk through walls?
+Set Shaun to be at an incorrrect start position
 
+because we already added the db to git we can't then add an ignore
 
 
 Street level
@@ -30,6 +32,9 @@ This section is stuff to do later
 This is the Done section
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Add GitHub
+
 Add DatabaseManagement.database_manager.py as module
 Convert DataManagement to a module
 
