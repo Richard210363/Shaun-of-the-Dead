@@ -15,7 +15,7 @@ class Enemy(turtle.Turtle):
         self.penup()
         self.speed(0)
         self.gold = 25
-        self.goto(x, y)
+        #self.goto(x, y)
         self.direction = random.choice(['up', 'down', 'left', 'right'])
         self.can_kill = True
         self.then_move=datetime.datetime.now() #NB: We don't actually need the word self here.  Self is assumed because we're inside the class at this point
@@ -25,8 +25,10 @@ class Enemy(turtle.Turtle):
         self.can_chase = True
         self.lives=lives
         self.type=type
+        self.x_cor=x
+        self.y_cor=y
         self.gameStateManager=gameStateManager
-        self.gameStateManager.appendZombie(self.name) #new
+        #self.gameStateManager.appendZombie(self.name) #new
         self.enemy_list=enemy_list
 
     def destroy(self):

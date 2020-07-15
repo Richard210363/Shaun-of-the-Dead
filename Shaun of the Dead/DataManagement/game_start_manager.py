@@ -5,7 +5,7 @@ class GameStartManager(object):
     def __init__(self , location):
         self.location = os.path.expanduser(location)
         self.load(self.location)
-        self.saveMemoryVersionOfDatabaseToFile()
+        #self.saveMemoryVersionOfDatabaseToFile()
 
     # These methods deal with Get/Set data into the memory
     # These methods are intermediary methods between the application and the methods that really "talk" to the file database
