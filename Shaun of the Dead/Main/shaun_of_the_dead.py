@@ -111,6 +111,12 @@ class ShaunOfTheDead(object):
         for enemy in self.enemy_list.enemies_list:
             enemy.move(self.player,self.walls)
 
+    def drawsEnemies(self):
+        for enemy in self.enemy_list.enemies_list:
+            screen_x=enemy.x_cor
+            screen_y=enemy.y_cor
+            enemy.goto(screen_x, screen_y)
+
     def drawsWalls(self):
         for wall in self.wall_block_list.walls_list:
             screen_x=wall[0]
@@ -147,6 +153,7 @@ class ShaunOfTheDead(object):
       
     #Define creating a level
     def setup_level(self, level):
+        self.drawsEnemies()
         self.drawsWalls()
         self.drawsPlayers()
         self.drawsTreasureLives()
