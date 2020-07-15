@@ -28,7 +28,7 @@ class Enemy(turtle.Turtle):
         self.x_cor=x
         self.y_cor=y
         self.gameStateManager=gameStateManager
-        self.gameStateManager.appendZombie(self.name) #new
+        #self.gameStateManager.appendZombie(self.name) #new
         self.enemy_list=enemy_list
 
     def destroy(self):
