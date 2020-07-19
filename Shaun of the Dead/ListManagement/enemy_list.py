@@ -10,6 +10,13 @@ class EnemyList(object):
         self.enemies = self.gameStateManager.get("Enemies")  #Gets Value
         self.enemies_list = []
 
+    #def fill_enemy_list(self, level_key):
+    #    self.enemies = self.gameStateManager.get("Enemies")
+    #    self.enemies_list = []
+    #    for position in range(3):
+    #        zombie=self.enemies[position]
+    #        self.enemies_list.append(enemy.Enemy(zombie["x_cor"], zombie["y_cor"], zombie["type"], zombie["name"], zombie["lives"], self.gameStateManager, self))
+
     def create_enemies_list(self):
         for position in range(3):
             zombie=self.enemies[position]

@@ -44,7 +44,8 @@ class ShaunOfTheDead(object):
         for enemy in self.enemy_list.enemies_list:
             enemy.move(self.player,self.walls)
 
-    def drawsEnemies(self):
+    def drawsEnemies(self, level_key):
+        #self.enemy_list.fill_enemy_list(level_key)
         for enemy in self.enemy_list.enemies_list:
             screen_x=enemy.x_cor
             screen_y=enemy.y_cor
@@ -59,20 +60,23 @@ class ShaunOfTheDead(object):
             self.wallBlock.stamp()
             self.walls.append((screen_x,screen_y))
 
-    def drawsPlayers(self):
+    def drawsPlayers(self, level_key):
+        #self.players_list.fill_player_list(level_key)
         for player in self.players_list.players_list:
             screen_x=player.x_cor
             screen_y=player.y_cor
             self.player.goto(screen_x, screen_y)
             self.players.append((screen_x,screen_y))
 
-    def drawsTreasureLives(self):
+    def drawsTreasureLives(self, level_key):
+        self.treasure_lives_list.fill_treasure_lives_list(level_key)
         for treasure_life in self.treasure_lives_list.treasure_lives_list:
             screen_x=treasure_life[0]
             screen_y=treasure_life[1]
             self.treasure_lives.goto(screen_x, screen_y)
 
-    def drawsTreasureBullets(self):
+    def drawsTreasureBullets(self, level_key):
+        self.treasure_bullets_list.fill_treasure_bullets_list(level_key)
         for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
             screen_x=treasure_bullet[0]
             screen_y=treasure_bullet[1]
@@ -88,10 +92,10 @@ class ShaunOfTheDead(object):
     #Define creating a level
     def setup_level(self, level_number):
         self.drawsWalls(level_number)
-        self.drawsEnemies()
-        self.drawsPlayers()
-        self.drawsTreasureLives()
-        self.drawsTreasureBullets()
+        self.drawsEnemies(level_number)
+        self.drawsPlayers(level_number)
+        self.drawsTreasureLives(level_number)
+        self.drawsTreasureBullets(level_number)
            
 #Everything above line this is preparing objects
 ###############################
