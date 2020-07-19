@@ -7,7 +7,7 @@ class EnemyList(object):
     def __init__(self, gameStartManager, gameStateManager, level_key):
         self.gameStartManager = gameStartManager
         self.gameStateManager = gameStateManager
-        self.enemies = self.gameStartManager.get("Enemies", level_key)  #Gets Value
+        self.enemies = self.gameStateManager.get("Enemies")  #Gets Value
         self.enemies_list = []
 
     def create_enemies_list(self):
