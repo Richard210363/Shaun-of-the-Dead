@@ -1516,10 +1516,13 @@
 				]
 			],
 			"Players": [
-				[
-					-216,
-					216
-				]
+				{	
+					"name": "Shaun",
+					"lives": 5,
+					"bullets": 10,
+					"x_cor": -216,
+					"y_cor": 216
+				}
 			],
 			"Enemies": [
 				{

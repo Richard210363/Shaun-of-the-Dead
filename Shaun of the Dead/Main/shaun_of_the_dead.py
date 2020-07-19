@@ -61,8 +61,8 @@ class ShaunOfTheDead(object):
 
     def drawsPlayers(self):
         for player in self.players_list.players_list:
-            screen_x=player[0]
-            screen_y=player[1]
+            screen_x=player.x_cor
+            screen_y=player.y_cor
             self.player.goto(screen_x, screen_y)
             self.players.append((screen_x,screen_y))
 
@@ -118,7 +118,7 @@ class ShaunOfTheDead(object):
 
         #Create items from classes
         self.wallBlock = wall_block_.WallBlock()
-        self.player = game_player_.Player(self.gameStateManager)
+        #self.player = game_player_.Player(self.gameStateManager)
         self.treasure_bullets = treasure_.Treasure_Bullets()
         self.treasure_lives = treasure_.Treasure_Lives()
         self.level_key = self.gameStateManager.get("Current_Level")
@@ -130,6 +130,7 @@ class ShaunOfTheDead(object):
 
         #Create Lists
         self.enemy_list.create_enemies_list()
+        self.players_list.create_players_list()
         self.walls = []
         self.bullets = []
         self.players = []
