@@ -50,7 +50,8 @@ class ShaunOfTheDead(object):
             screen_y=enemy.y_cor
             enemy.goto(screen_x, screen_y)
 
-    def drawsWalls(self):
+    def drawsWalls(self, level_key):
+        self.wall_block_list.fill_wall_list(level_key)
         for wall in self.wall_block_list.walls_list:
             screen_x=wall[0]
             screen_y=wall[1]
@@ -85,9 +86,9 @@ class ShaunOfTheDead(object):
             bullet.move()
       
     #Define creating a level
-    def setup_level(self):
+    def setup_level(self, level_number):
+        self.drawsWalls(level_number)
         self.drawsEnemies()
-        self.drawsWalls()
         self.drawsPlayers()
         self.drawsTreasureLives()
         self.drawsTreasureBullets()
@@ -122,7 +123,7 @@ class ShaunOfTheDead(object):
         self.treasure_lives = treasure_.Treasure_Lives()
         self.level_key = self.gameStateManager.get("Current_Level")
         self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager, self.level_key)
-        self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager, self.level_key)
+        self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager)
         self.players_list = players_list_.PlayersList(self.gameStartManager, self.gameStateManager, self.level_key)
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)
         self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStartManager, self.gameStateManager, self.level_key)
@@ -145,9 +146,10 @@ class ShaunOfTheDead(object):
         turtle.onkey(self.quit_game,'q')
         self.wn.tracer(0)
 
-        if start_mode.upper()== "R":
-            #Create level
-            self.setup_level()
+        if start_mode.upper()== "N":
+            #Start new game
+            self.level_key="1"
+            self.setup_level(self.level_key)
 
         # Main game loop
         while not self.quit:
