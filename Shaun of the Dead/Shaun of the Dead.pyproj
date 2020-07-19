@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Notes.txt" />
     <Content Include="style_guide.txt" />
+    <Content Include="User Stories.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataManagement\" />

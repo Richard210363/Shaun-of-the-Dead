@@ -3,10 +3,8 @@ This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Quick bug hunt on why Shaun can walk through walls?
-Set Shaun to be at an incorrrect start position
+game state at start should equial game start database
 
-because we already added the db to git we can't then add an ignore
 
 
 Street level
@@ -32,6 +30,10 @@ This section is stuff to do later
 This is the Done section
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Quick bug hunt on why Shaun can walk through walls?
+Set Shaun to be at an incorrrect start position
+
+because we already added the db to git we can't then add an ignore
 
 Add GitHub
 
