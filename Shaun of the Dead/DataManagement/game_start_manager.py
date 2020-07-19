@@ -21,21 +21,21 @@ class GameStartManager(object):
     def initialiseDatabase(self): #new
         try:
             self.resetdb()        
-            self.memoryVersionOfDatabase={"Zombies":[]}
+            self.memoryVersionOfDatabase={"Enemies":[]}
             self.saveMemoryVersionOfDatabaseToFile()
         except Exception as e:
             print("[X] Error Saving Values to Database : " + str(e))
             return False
 
     def appendZombie(self, ZombieID):
-        self.memoryVersionOfDatabase["Zombies"].append({"name": ZombieID,"lives": "3"})
+        self.memoryVersionOfDatabase["Enemies"].append({"name": ZombieID,"lives": "3"})
         self.saveMemoryVersionOfDatabaseToFile()
 
     def updateZombie(self, ZombieID, lives):
         self.loadMemoryVersionOfDatabaseFromFile()
 
         #First we unpack the data
-        zombies=self.memoryVersionOfDatabase["Zombies"]  #This is a list
+        zombies=self.memoryVersionOfDatabase["Enemies"]  #This is a list
         zombie = list(filter(lambda i: i['name'] == ZombieID, zombies))[0]  
 
         #Then we make the change 
@@ -61,7 +61,7 @@ class GameStartManager(object):
             #level = Levels["1"]
             return level[object_key]
         except KeyError:
-            print("No Value Can Be Found for " + str(key))
+            print("No Value Can Be Found for " + str(level_key))
             return False
 
     def delete(self , key):
