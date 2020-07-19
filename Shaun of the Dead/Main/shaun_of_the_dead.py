@@ -135,7 +135,12 @@ class ShaunOfTheDead(object):
         self.bullets = []
         self.players = []
 
-        self.player.walls = self.walls
+        #self.player.walls = self.walls
+
+        for player in self.players_list.players_list:
+            player.walls = self.walls
+            
+        self.player = self.players_list.players_list[0]
 
         #Listen to keyboard input
         turtle.listen()
