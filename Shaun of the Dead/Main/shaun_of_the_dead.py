@@ -60,8 +60,7 @@ class ShaunOfTheDead(object):
             self.wallBlock.stamp()
             self.walls.append((screen_x,screen_y))
 
-    def drawsPlayers(self, level_key):
-        #self.players_list.fill_player_list(level_key)
+    def drawsPlayers(self):
         for player in self.players_list.players_list:
             screen_x=player.x_cor
             screen_y=player.y_cor
@@ -132,9 +131,15 @@ class ShaunOfTheDead(object):
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)
         self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStartManager, self.gameStateManager, self.level_key)
 
+        if start_mode.upper()== "N":
+            #Start new game
+            self.level_key="1"
+            self.setup_level(self.level_key)
+
         #Create Lists
         self.enemy_list.create_enemies_list()
-        self.players_list.create_players_list()
+        #self.players_list.create_players_list()
+        self.players_list.fill_player_list(self.level_key)
         self.walls = []
         self.bullets = []
         self.players = []
@@ -155,11 +160,6 @@ class ShaunOfTheDead(object):
         turtle.onkey(self.fire_bullet,'f')
         turtle.onkey(self.quit_game,'q')
         self.wn.tracer(0)
-
-        if start_mode.upper()== "N":
-            #Start new game
-            self.level_key="1"
-            self.setup_level(self.level_key)
 
         # Main game loop
         while not self.quit:
