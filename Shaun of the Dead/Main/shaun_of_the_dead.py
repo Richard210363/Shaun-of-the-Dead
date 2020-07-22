@@ -66,14 +66,12 @@ class ShaunOfTheDead:
             self.players.append((screen_x,screen_y))
 
     def drawsTreasureLives(self, level_key):
-        self.treasure_lives_list.fill_treasure_lives_list(level_key)
         for treasure_life in self.treasure_lives_list.treasure_lives_list:
             screen_x=treasure_life[0]
             screen_y=treasure_life[1]
             self.treasure_lives.goto(screen_x, screen_y)
 
     def drawsTreasureBullets(self, level_key):
-        self.treasure_bullets_list.fill_treasure_bullets_list(level_key)
         for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
             screen_x=treasure_bullet[0]
             screen_y=treasure_bullet[1]
@@ -130,6 +128,8 @@ class ShaunOfTheDead:
         self.players_list.fill_player_list(self.level_key)
         self.enemy_list.fill_enemy_list(self.level_key)
         self.wall_block_list.fill_wall_list(self.level_key)
+        self.treasure_lives_list.fill_treasure_lives_list(self.level_key)
+        self.treasure_bullets_list.fill_treasure_bullets_list(self.level_key)
         self.walls = []
         self.bullets = []
         self.players = []

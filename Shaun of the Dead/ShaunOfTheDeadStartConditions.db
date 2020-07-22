@@ -1522,6 +1522,13 @@
 					"bullets": 10,
 					"x_cor": -216,
 					"y_cor": 216
+				},
+				{
+					"name": "Ed",
+					"lives": 5,
+					"bullets": 10,
+					"x_cor": -240,
+					"y_cor": 216
 				}
 			],
 			"Enemies": [
