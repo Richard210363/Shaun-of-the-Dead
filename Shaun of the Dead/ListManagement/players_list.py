@@ -3,22 +3,17 @@ import Entities.player as player
 
 class PlayersList(object):
     """description of class"""
-    def __init__(self, gameStartManager, gameStateManager, level_key):
+    def __init__(self, gameStartManager, gameStateManager):
         self.gameStartManager = gameStartManager
         self.gameStateManager = gameStateManager
-        self.players = "x"
         self.players_list = []
-        x=7
 
     def fill_player_list(self, level_key):
-        self.players = self.gameStartManager.get("Players", level_key)
-        #self.players_list = []
+        players = self.gameStartManager.get("Players", level_key)
         for position in range(1):
-            players=self.players[position]
-            self.players_list.append(player.Player(players["x_cor"], players["y_cor"], players["bullets"], players["name"], players["lives"], self.gameStateManager, self))
+            single_player=players[position]
+            self.players_list.append(player.Player(single_player["x_cor"], single_player["y_cor"], single_player["bullets"], single_player["name"], single_player["lives"], self.gameStateManager, self))
 
-    #def create_players_list(self):
-    #    for position in range(1):
-    #        players=self.players[position]
-    #        self.players_list.append(player.Player(players["x_cor"], players["y_cor"], players["bullets"], players["name"], players["lives"], self.gameStateManager, self))
+
+ 
 
