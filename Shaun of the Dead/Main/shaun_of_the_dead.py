@@ -44,6 +44,9 @@ class ShaunOfTheDead:
         for enemy in self.enemy_list.enemies_list:
             enemy.move(self.player,self.walls)
 
+    #def moveNPC(self):
+
+
     def drawsEnemies(self):
         for enemy in self.enemy_list.enemies_list:
             screen_x=enemy.x_cor
@@ -59,19 +62,18 @@ class ShaunOfTheDead:
             self.walls.append((screen_x,screen_y))
 
     def drawsPlayers(self):
-        for player in self.players_list.players_list:
+        for player in self.players_list.npc_list:
             screen_x=player.x_cor
             screen_y=player.y_cor
             self.player.goto(screen_x, screen_y)
-            self.players.append((screen_x,screen_y))
 
-    def drawsTreasureLives(self, level_key):
+    def drawsTreasureLives(self):
         for treasure_life in self.treasure_lives_list.treasure_lives_list:
             screen_x=treasure_life[0]
             screen_y=treasure_life[1]
             self.treasure_lives.goto(screen_x, screen_y)
 
-    def drawsTreasureBullets(self, level_key):
+    def drawsTreasureBullets(self):
         for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
             screen_x=treasure_bullet[0]
             screen_y=treasure_bullet[1]
@@ -89,8 +91,8 @@ class ShaunOfTheDead:
         self.drawsPlayers()
         self.drawsEnemies()
         self.drawsWalls()
-        self.drawsTreasureLives(1)
-        self.drawsTreasureBullets(1)
+        self.drawsTreasureLives()
+        self.drawsTreasureBullets()
            
     def start(self, start_mode):
 
@@ -117,7 +119,7 @@ class ShaunOfTheDead:
         self.level_key = self.gameStateManager.get("Current_Level")
         self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager)
         self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager)
-        self.players_list = players_list_.PlayersList(self.gameStartManager, self.gameStateManager)
+        self.players_list = players_list_.NPCList(self.gameStartManager, self.gameStateManager)
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)
         self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStartManager, self.gameStateManager, self.level_key)
 
@@ -125,19 +127,18 @@ class ShaunOfTheDead:
             self.level_key="1"
 
         #Create Lists
-        self.players_list.fill_player_list(self.level_key)
+        self.players_list.fill_npc_list(self.level_key)
         self.enemy_list.fill_enemy_list(self.level_key)
         self.wall_block_list.fill_wall_list(self.level_key)
         self.treasure_lives_list.fill_treasure_lives_list(self.level_key)
         self.treasure_bullets_list.fill_treasure_bullets_list(self.level_key)
         self.walls = []
         self.bullets = []
-        self.players = []
 
-        for player in self.players_list.players_list:
+        for player in self.players_list.npc_list:
             player.walls = self.walls
             
-        self.player = self.players_list.players_list[0]
+        self.player = self.players_list.npc_list[0]
 
         #Listen to keyboard input
         turtle.listen()

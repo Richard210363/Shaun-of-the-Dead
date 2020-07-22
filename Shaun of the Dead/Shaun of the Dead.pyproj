@@ -28,6 +28,7 @@
     </Compile>
     <Compile Include="Entities\enemy.py" />
     <Compile Include="DataManagement\game_state_manager.py" />
+    <Compile Include="Entities\non_player_character.py" />
     <Compile Include="Entities\treasure.py">
       <SubType>Code</SubType>
     </Compile>

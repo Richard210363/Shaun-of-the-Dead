@@ -1,18 +1,18 @@
 import turtle
 import Entities.player as player
 
-class PlayersList:
+class NPCList:
     """description of class"""
     def __init__(self, gameStartManager, gameStateManager):
         self.gameStartManager = gameStartManager
         self.gameStateManager = gameStateManager
-        self.players_list = []
+        self.npc_list = []
 
-    def fill_player_list(self, level_key):
-        players = self.gameStartManager.get("Players", level_key)
-        for position in range(1):
-            single_player=players[position]
-            self.players_list.append(player.Player(single_player["x_cor"], single_player["y_cor"], single_player["bullets"], single_player["name"], single_player["lives"], self.gameStateManager, self))
+    def fill_npc_list(self, level_key):
+        npcs_from_database = self.gameStartManager.get("Players", level_key)
+        for position in range(2):
+            single_npc=npcs_from_database[position]
+            self.npc_list.append(player.Player(single_npc["x_cor"], single_npc["y_cor"], single_npc["bullets"], single_npc["name"], single_npc["lives"], self.gameStateManager, self))
 
 
  
