@@ -7,6 +7,7 @@ import Entities.player as game_player_  #why did i call it this?
 import Entities.treasure as treasure_
 import Entities.bullet as bullet_
 import Entities.wall_block as wall_block_
+import Entities.non_player_character as non_player_character_
 import ResourceManagement.sound_effects as sound_effect_
 import DataManagement.game_state_manager as game_state_manager_
 import DataManagement.game_start_manager as game_start_manager_
@@ -44,8 +45,10 @@ class ShaunOfTheDead:
         for enemy in self.enemy_list.enemies_list:
             enemy.move(self.player,self.walls)
 
-    #def moveNPC(self):
-    #    for npc in self.npc_lis
+    def moveNPC(self):
+        for npc in self.npc_list.npc_list:
+            npc.move(self.walls)
+
 
 
     def drawsEnemies(self):
@@ -188,6 +191,7 @@ class ShaunOfTheDead:
                 print ("Shaun has " + str(self.player.lives) + " lives")
 
             self.moveEnemies()
+            self.moveNPC()
             self.movebullets()
             self.wn.update()
 
