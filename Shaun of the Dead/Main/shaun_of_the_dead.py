@@ -16,7 +16,7 @@ import ListManagement.players_list as players_list_
 import ListManagement.treasure_lives_list as treasure_lives_list_
 import ListManagement.treasure_bullets_list as treasure_bullets_list_
 
-class ShaunOfTheDead(object):
+class ShaunOfTheDead:
     """description of class"""
 
     def __init__(self, gameStartManager, gameStateManager):
@@ -50,8 +50,7 @@ class ShaunOfTheDead(object):
             screen_y=enemy.y_cor
             enemy.goto(screen_x, screen_y)
 
-    def drawsWalls(self, level_key):
-        self.wall_block_list.fill_wall_list(level_key)
+    def drawsWalls(self):
         for wall in self.wall_block_list.walls_list:
             screen_x=wall[0]
             screen_y=wall[1]
@@ -91,7 +90,7 @@ class ShaunOfTheDead(object):
     def setup_level(self):
         self.drawsPlayers()
         self.drawsEnemies()
-        self.drawsWalls(1)
+        self.drawsWalls()
         self.drawsTreasureLives(1)
         self.drawsTreasureBullets(1)
            
@@ -130,6 +129,7 @@ class ShaunOfTheDead(object):
         #Create Lists
         self.players_list.fill_player_list(self.level_key)
         self.enemy_list.fill_enemy_list(self.level_key)
+        self.wall_block_list.fill_wall_list(self.level_key)
         self.walls = []
         self.bullets = []
         self.players = []
