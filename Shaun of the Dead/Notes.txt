@@ -5,6 +5,8 @@ This is the what we are going to do
 
 game state at start should equial game start database
 
+need to make npc list use npc class 
+
 
 
 Street level
