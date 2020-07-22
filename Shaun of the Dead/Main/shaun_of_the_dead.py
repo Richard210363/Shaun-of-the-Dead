@@ -95,11 +95,6 @@ class ShaunOfTheDead(object):
         self.drawsTreasureLives(1)
         self.drawsTreasureBullets(1)
            
-#Everything above line this is preparing objects
-###############################
-#Everything below line this is the program that does things
-
-
     def start(self, start_mode):
 
         #Prepare assets
@@ -120,7 +115,6 @@ class ShaunOfTheDead(object):
 
         #Create items from classes
         self.wallBlock = wall_block_.WallBlock()
-        #self.player = game_player_.Player(self.gameStateManager)
         self.treasure_bullets = treasure_.Treasure_Bullets()
         self.treasure_lives = treasure_.Treasure_Lives()
         self.level_key = self.gameStateManager.get("Current_Level")
@@ -131,19 +125,14 @@ class ShaunOfTheDead(object):
         self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStartManager, self.gameStateManager, self.level_key)
 
         if start_mode.upper()== "N":
-            #Start new game
             self.level_key="1"
 
         #Create Lists
-        #self.enemy_list.create_enemies_list()
-        #self.players_list.create_players_list()
         self.players_list.fill_player_list(self.level_key)
         self.enemy_list.fill_enemy_list(self.level_key)
         self.walls = []
         self.bullets = []
         self.players = []
-
-        #self.player.walls = self.walls
 
         for player in self.players_list.players_list:
             player.walls = self.walls
@@ -161,6 +150,10 @@ class ShaunOfTheDead(object):
         self.wn.tracer(0)
 
         self.setup_level()
+
+#Everything above line this is preparing objects
+###############################
+#Everything below line runs the game
 
         # Main game loop
         while not self.quit:
