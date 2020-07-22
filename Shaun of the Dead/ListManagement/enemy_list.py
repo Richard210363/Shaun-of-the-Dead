@@ -4,23 +4,16 @@ import DataManagement.game_state_manager as game_state_manager
 
 class EnemyList(object):
     """description of class"""
-    def __init__(self, gameStartManager, gameStateManager, level_key):
+    def __init__(self, gameStartManager, gameStateManager):
         self.gameStartManager = gameStartManager
         self.gameStateManager = gameStateManager
-        self.enemies = self.gameStateManager.get("Enemies")  #Gets Value
         self.enemies_list = []
 
-    #def fill_enemy_list(self, level_key):
-    #    self.enemies = self.gameStateManager.get("Enemies")
-    #    self.enemies_list = []
-    #    for position in range(3):
-    #        zombie=self.enemies[position]
-    #        self.enemies_list.append(enemy.Enemy(zombie["x_cor"], zombie["y_cor"], zombie["type"], zombie["name"], zombie["lives"], self.gameStateManager, self))
-
-    def create_enemies_list(self):
+    def fill_enemy_list(self, level_key):
+        enemies = self.gameStateManager.get("Enemies")
         for position in range(3):
-            zombie=self.enemies[position]
-            self.enemies_list.append(enemy.Enemy(zombie["x_cor"], zombie["y_cor"], zombie["type"], zombie["name"], zombie["lives"], self.gameStateManager, self))
+            single_enemy=enemies[position]
+            self.enemies_list.append(enemy.Enemy(single_enemy["x_cor"], single_enemy["y_cor"], single_enemy["type"], single_enemy["name"], single_enemy["lives"], self.gameStateManager, self))
 
     def remove_enemy_from_list(self, enemy):
         self.enemies_list.remove(enemy)

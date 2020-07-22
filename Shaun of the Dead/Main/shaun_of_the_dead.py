@@ -44,8 +44,7 @@ class ShaunOfTheDead(object):
         for enemy in self.enemy_list.enemies_list:
             enemy.move(self.player,self.walls)
 
-    def drawsEnemies(self, level_key):
-        #self.enemy_list.fill_enemy_list(level_key)
+    def drawsEnemies(self):
         for enemy in self.enemy_list.enemies_list:
             screen_x=enemy.x_cor
             screen_y=enemy.y_cor
@@ -91,8 +90,8 @@ class ShaunOfTheDead(object):
     #Define creating a level
     def setup_level(self):
         self.drawsPlayers()
+        self.drawsEnemies()
         self.drawsWalls(1)
-        self.drawsEnemies(1)
         self.drawsTreasureLives(1)
         self.drawsTreasureBullets(1)
            
@@ -125,7 +124,7 @@ class ShaunOfTheDead(object):
         self.treasure_bullets = treasure_.Treasure_Bullets()
         self.treasure_lives = treasure_.Treasure_Lives()
         self.level_key = self.gameStateManager.get("Current_Level")
-        self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager, self.level_key)
+        self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager)
         self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager)
         self.players_list = players_list_.PlayersList(self.gameStartManager, self.gameStateManager)
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)
@@ -136,9 +135,10 @@ class ShaunOfTheDead(object):
             self.level_key="1"
 
         #Create Lists
-        self.enemy_list.create_enemies_list()
+        #self.enemy_list.create_enemies_list()
         #self.players_list.create_players_list()
         self.players_list.fill_player_list(self.level_key)
+        self.enemy_list.fill_enemy_list(self.level_key)
         self.walls = []
         self.bullets = []
         self.players = []
