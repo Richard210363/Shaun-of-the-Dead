@@ -1,7 +1,7 @@
 import turtle
 import Entities.player as player
 
-class PlayersList(object):
+class PlayersList:
     """description of class"""
     def __init__(self, gameStartManager, gameStateManager):
         self.gameStartManager = gameStartManager
