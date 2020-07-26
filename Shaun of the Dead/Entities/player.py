@@ -7,22 +7,24 @@ import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
 
 class Player(turtle.Turtle):
-    def __init__(self, x, y, bullets, name, lives, gameStateManager, player_list):
+    def __init__(self, gameStateManager, gameStartManager, level_key):
         turtle.Turtle.__init__(self)
+        player_list_from_database = gameStartManager.get("Player", level_key)
+        player_from_database = player_list_from_database[0]
+        self.bullets=player_from_database["bullets"]
+        self.lives=player_from_database["lives"]
+        self.x_cor=player_from_database["x_cor"]
+        self.y_cor=player_from_database["y_cor"]
+        self.name=player_from_database["name"]
         self.shape("Shaun.gif")
         self.color("blue")
         self.penup()
         self.speed(0)
-        self.bullets=bullets
         self.direction=""
         self.can_get_bullets=True
-        self.lives=lives
         self.can_get_lives=True
         self.walls = []
         self.gameStateManager=gameStateManager
-        self.x_cor=x
-        self.y_cor=y
-        self.name=name
         #gameStateManager.set("name" , "Shaun") #new
         
 

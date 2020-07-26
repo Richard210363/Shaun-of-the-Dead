@@ -3,7 +3,7 @@ import math
 import pygame
 
 import Entities.enemy as enemy_
-import Entities.player as game_player_  #why did i call it this?
+import Entities.player as game_player_
 import Entities.treasure as treasure_
 import Entities.bullet as bullet_
 import Entities.wall_block as wall_block_
@@ -117,10 +117,11 @@ class ShaunOfTheDead:
         self.wn.setup(700,700)
 
         #Create items from classes
+        self.level_key = self.gameStateManager.get("Current_Level")
         self.wallBlock = wall_block_.WallBlock()
+        self.player = game_player_.Player(self.gameStateManager, self.gameStartManager, self.level_key)
         self.treasure_bullets = treasure_.Treasure_Bullets()
         self.treasure_lives = treasure_.Treasure_Lives()
-        self.level_key = self.gameStateManager.get("Current_Level")
         self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager)
         self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager)
         self.npc_list = npc_list_.NPCList(self.gameStartManager, self.gameStateManager)
@@ -136,6 +137,7 @@ class ShaunOfTheDead:
         self.wall_block_list.fill_wall_list(self.level_key)
         self.treasure_lives_list.fill_treasure_lives_list(self.level_key)
         self.treasure_bullets_list.fill_treasure_bullets_list(self.level_key)
+
         self.walls = []
         self.bullets = []
 
