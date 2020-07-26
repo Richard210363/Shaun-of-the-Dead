@@ -65,11 +65,11 @@ class ShaunOfTheDead:
             self.wallBlock.stamp()
             self.walls.append((screen_x,screen_y))
 
-    def drawsPlayers(self):
-        for player in self.npc_list.npc_list:
-            screen_x=player.x_cor
-            screen_y=player.y_cor
-            self.player.goto(screen_x, screen_y)
+    def drawsNPC(self):
+        for npc in self.npc_list.npc_list:
+            screen_x=npc.x_cor
+            screen_y=npc.y_cor
+            npc.goto(screen_x, screen_y)
 
     def drawsTreasureLives(self):
         for treasure_life in self.treasure_lives_list.treasure_lives_list:
@@ -97,7 +97,7 @@ class ShaunOfTheDead:
       
     #Define creating a level
     def setup_level(self):
-        self.drawsPlayers()
+        self.drawsNPC()
         self.drawsEnemies()
         self.drawsWalls()
         self.drawsTreasureLives()

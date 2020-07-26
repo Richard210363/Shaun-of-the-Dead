@@ -9,24 +9,26 @@ import DataManagement.game_state_manager as game_state_manager
 class NPC(turtle.Turtle):
     def __init__(self, x, y, bullets, name, lives, gameStateManager, npc_list):
         turtle.Turtle.__init__(self)
+        self.x_cor=x
+        self.y_cor=y
+        self.name=name        
+        self.bullets=bullets      
+        self.lives=lives
         self.shape("Shaun.gif")
         self.color("blue")
         self.penup()
         self.speed(0)
-        self.bullets=bullets
         self.direction=""
         self.can_get_bullets=True
-        self.lives=lives
         self.can_get_lives=True
         self.walls = []
         self.gameStateManager=gameStateManager
-        self.x_cor=x
-        self.y_cor=y
-        self.name=name
-        #gameStateManager.set("name" , "Shaun") #new
-        
+        self.then_move=datetime.datetime.now()
+        self.then_collision=datetime.datetime.now()
+        self.closeFlag = False
+        self.can_chase = True
 
-    #Define Player Movement
+    #Define NPC Movement
     def go_up(self):
         move_to_x = self.xcor()
         move_to_y = self.ycor()+24
@@ -59,7 +61,7 @@ class NPC(turtle.Turtle):
             self.shape("Right_Facing_Shaun.gif")
             self.direction="go_right"
    
-    #Define Player Events   
+    #Define NPC Events   
     # def is_collision_with_treasure_bullets(self, other):         
     def is_collision_with_treasure_bullets(self, other):
         a=self.xcor() - other.xcor()
@@ -100,9 +102,9 @@ class NPC(turtle.Turtle):
                 return False
 
 #Move sprite
-    def move(self,player,walls):
+    def move(self, walls): #do we really want to pass the player to an NPC?
 
-#Set the speed of Enemy movement by not moving in too short a time period
+#Set the speed of NPC movement by not moving in too short a time period
         now_move=datetime.datetime.now()      
         diff_move = now_move - self.then_move
 
@@ -121,7 +123,7 @@ class NPC(turtle.Turtle):
         #print("Microseconds:", diff.microseconds)
         #print("Seconds:", diff.seconds)
 
-        if diff_move.microseconds<300000:  # Set Enemy speed here. Lower is faster
+        if diff_move.microseconds<300000:  # Set NPC speed here. Lower is faster
             return
 
         self.then_move=now_move
