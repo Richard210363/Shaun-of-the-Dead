@@ -83,6 +83,11 @@ class ShaunOfTheDead:
             screen_y=treasure_bullet[1]
             self.treasure_bullets.goto(screen_x, screen_y)
 
+    def drawsPlayer(self):
+        screen_x=self.player.x_cor
+        screen_y=self.player.y_cor
+        self.player.goto(screen_x, screen_y)
+
     def quit_game(self):
         self.quit = True
 
@@ -97,6 +102,7 @@ class ShaunOfTheDead:
         self.drawsWalls()
         self.drawsTreasureLives()
         self.drawsTreasureBullets()
+        self.drawsPlayer()
            
     def start(self, start_mode):
 
@@ -141,11 +147,11 @@ class ShaunOfTheDead:
         self.walls = []
         self.bullets = []
 
+        self.player.walls = self.walls
+
         for player in self.npc_list.npc_list:
             player.walls = self.walls
             
-        self.player = self.npc_list.npc_list[0]
-
         #Listen to keyboard input
         turtle.listen()
         turtle.onkey(self.player.go_left,"a")
