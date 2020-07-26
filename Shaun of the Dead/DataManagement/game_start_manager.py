@@ -64,6 +64,15 @@ class GameStartManager(object):
             print("No Value Can Be Found for " + str(level_key))
             return False
 
+    def get_level(self, level_key):
+        try:
+            self.loadMemoryVersionOfDatabaseFromFile()
+            Levels = self.memoryVersionOfDatabase["Levels"]
+            return Levels[level_key]
+        except KeyError:
+            print("No Value Can Be Found for " + str(level_key))
+            return False
+
     def delete(self , key):
         if not key in self.memoryVersionOfDatabase:
             return False
