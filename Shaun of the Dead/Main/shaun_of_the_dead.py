@@ -71,14 +71,14 @@ class ShaunOfTheDead:
 
     def drawsTreasureLives(self):
         for treasure_life in self.treasure_lives_list.treasure_lives_list:
-            screen_x=treasure_life[0]
-            screen_y=treasure_life[1]
+            screen_x=treasure_life.x_cor
+            screen_y=treasure_life.y_cor
             treasure_life.goto(screen_x, screen_y)
 
     def drawsTreasureBullets(self):
         for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
-            screen_x=treasure_bullet[0]
-            screen_y=treasure_bullet[1]
+            screen_x=treasure_bullet.x_cor
+            screen_y=treasure_bullet.y_cor
             treasure_bullet.goto(screen_x, screen_y)
 
     def drawsPlayer(self):
@@ -190,12 +190,13 @@ class ShaunOfTheDead:
                     self.gameStateManager.set("bullets" , self.player.bullets) #new
                     print ("Shaun has " + str(self.player.bullets) + " bullets")
 
-            if self.player.is_collision_with_treasure_lives(self.treasure_lives):
-                self.player.lives += self.treasure_lives.lives
-                #Save player.lives state
-                self.gameStateManager.set("lives" , self.player.lives) #new
-                print ("Shaun has gained a life")
-                print ("Shaun has " + str(self.player.lives) + " lives")
+            for treasure_life in self.treasure_lives_list.treasure_lives_list:
+                if self.player.is_collision_with_treasure_lives(treasure_life):
+                    self.player.lives += treasure_life.lives
+                    #Save player.lives state
+                    self.gameStateManager.set("lives" , self.player.lives) #new
+                    print ("Shaun has gained a life")
+                    print ("Shaun has " + str(self.player.lives) + " lives")
 
             self.moveEnemies()
             self.moveNPC()
