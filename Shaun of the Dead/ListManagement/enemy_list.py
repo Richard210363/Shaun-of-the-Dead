@@ -9,8 +9,8 @@ class EnemyList(object):
         self.enemies_list = []
 
     def fill_enemy_list(self):
-        enemies = self.gameStateManager.get("Enemies")
-        for position in range(3):
+        enemies = self.gameStateManager.get("Enemies") 
+        for position in range(len(enemies)):
             single_enemy=enemies[position]
             self.enemies_list.append(enemy.Enemy(single_enemy["x_cor"], single_enemy["y_cor"], single_enemy["type"], single_enemy["name"], single_enemy["lives"], self.gameStateManager, self))
 
