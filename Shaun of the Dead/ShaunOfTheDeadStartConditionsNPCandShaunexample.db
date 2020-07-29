@@ -1524,7 +1524,7 @@
 					"y_cor": 216
 				}
 			],
-			"Player": [
+			"Player": 
 				{	
 					"name": "Shaun",
 					"lives": 5,
@@ -1532,7 +1532,7 @@
 					"x_cor": -216,
 					"y_cor": 216
 				}
-			],
+			,
 			"Enemies": [
 				{
 					"type": "Zombie",

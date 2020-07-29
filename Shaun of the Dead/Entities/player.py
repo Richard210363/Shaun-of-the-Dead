@@ -7,10 +7,9 @@ import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
 
 class Player(turtle.Turtle):
-    def __init__(self, gameStateManager, gameStartManager, level_key):
+    def __init__(self, gameStateManager):
         turtle.Turtle.__init__(self)
-        player_list_from_database = gameStartManager.get("Player", level_key)
-        player_from_database = player_list_from_database[0]
+        player_from_database = gameStateManager.get("Player")
         self.bullets=player_from_database["bullets"]
         self.lives=player_from_database["lives"]
         self.x_cor=player_from_database["x_cor"]
@@ -25,8 +24,6 @@ class Player(turtle.Turtle):
         self.can_get_lives=True
         self.walls = []
         self.gameStateManager=gameStateManager
-        #gameStateManager.set("name" , "Shaun") #new
-        
 
     #Define Player Movement
     def go_up(self):
@@ -61,8 +58,7 @@ class Player(turtle.Turtle):
             self.shape("Right_Facing_Shaun.gif")
             self.direction="go_right"
    
-    #Define Player Events   
-    # def is_collision_with_treasure_bullets(self, other):         
+    #Define Player Events          
     def is_collision_with_treasure_bullets(self, other):
         a=self.xcor() - other.xcor()
         b = self.ycor() - other.ycor()
