@@ -73,13 +73,13 @@ class ShaunOfTheDead:
         for treasure_life in self.treasure_lives_list.treasure_lives_list:
             screen_x=treasure_life[0]
             screen_y=treasure_life[1]
-            self.treasure_lives.goto(screen_x, screen_y)
+            treasure_life.goto(screen_x, screen_y)
 
     def drawsTreasureBullets(self):
         for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
             screen_x=treasure_bullet[0]
             screen_y=treasure_bullet[1]
-            self.treasure_bullets.goto(screen_x, screen_y)
+            treasure_bullet.goto(screen_x, screen_y)
 
     def drawsPlayer(self):
         screen_x=self.player.x_cor
@@ -183,11 +183,12 @@ class ShaunOfTheDead:
                         bullet.destroy()
                         enemy.wound()
 
-            if self.player.is_collision_with_treasure_bullets(self.treasure_bullets):
-                self.player.bullets += self.treasure_bullets.GetBullets("UnLimited")
-                #Save player.bullets state
-                self.gameStateManager.set("bullets" , self.player.bullets) #new
-                print ("Shaun has " + str(self.player.bullets) + " bullets")
+            for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
+                if self.player.is_collision_with_treasure_bullets(treasure_bullet):
+                    self.player.bullets += treasure_bullet.GetBullets("UnLimited")
+                    #Save player.bullets state
+                    self.gameStateManager.set("bullets" , self.player.bullets) #new
+                    print ("Shaun has " + str(self.player.bullets) + " bullets")
 
             if self.player.is_collision_with_treasure_lives(self.treasure_lives):
                 self.player.lives += self.treasure_lives.lives
