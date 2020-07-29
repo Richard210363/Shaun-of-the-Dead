@@ -10,7 +10,6 @@ import Entities.wall_block as wall_block_
 import Entities.non_player_character as non_player_character_
 import ResourceManagement.sound_effects as sound_effect_
 import DataManagement.game_state_manager as game_state_manager_
-import DataManagement.game_start_manager as game_start_manager_
 import ListManagement.enemy_list as enemy_list_
 import ListManagement.wall_block_list as wall_block_list_
 import ListManagement.npc_list as npc_list_
@@ -20,10 +19,9 @@ import ListManagement.treasure_bullets_list as treasure_bullets_list_
 class ShaunOfTheDead:
     """description of class"""
 
-    def __init__(self, gameStartManager, gameStateManager):
+    def __init__(self, gameStateManager):
         #Initialize the GameStateManager
         self.gameStateManager = gameStateManager
-        self.gameStartManager = gameStartManager
 
         self.quit=False
 

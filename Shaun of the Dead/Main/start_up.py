@@ -6,7 +6,7 @@ import DataManagement.initialise_new_game as initialise_new_game_
 #gameStartManager=game_start_manager_.GameStartManager("./ShaunOfTheDeadStartConditions.db")
 gameStartManager=game_start_manager_.GameStartManager("./ShaunOfTheDeadStartConditionsNPCandShaunexample.db")
 gameStateManager=game_state_manager_.GameStateManager("./ShaunOfTheDeadGameState.db")
-game=main_game_.ShaunOfTheDead(gameStartManager, gameStateManager)
+game=main_game_.ShaunOfTheDead(gameStateManager)
 print("Enter N for a new game")
 print("Enter C to continue")
 print("Enter a number to replay that level: 1 or 2")
