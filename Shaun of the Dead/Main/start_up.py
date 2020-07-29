@@ -12,7 +12,7 @@ print("Enter C to continue")
 print("Enter a number to replay that level: 1 or 2")
 user_input = input()
 if user_input == "N":
-    new_game=initialise_new_game_.initialise_new_game(gameStartManager)
+    new_game = initialise_new_game_.initialise_new_game(gameStartManager, gameStateManager)
     new_game.initialise_level_one()
 game.start(user_input)
 
