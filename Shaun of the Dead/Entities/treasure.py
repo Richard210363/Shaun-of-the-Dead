@@ -2,10 +2,12 @@ import turtle
 
 #Define base treasure class
 class Treasure(turtle.Turtle):
-    def __init__(self):
+    def __init__(self, x, y):
         turtle.Turtle.__init__(self)
         self.penup()
         self.speed(0)
+        self.x_cor=x
+        self.y_cor=y
 
     def destroy(self):
         self.goto(2000,2000)
@@ -15,8 +17,8 @@ class Treasure(turtle.Turtle):
 
 #Define Treasure_Bullets
 class Treasure_Bullets(Treasure):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, x, y):
+        super().__init__(x, y)
         self.shape("Gun.gif")
         self.bullets = 10
 
@@ -34,8 +36,8 @@ class Treasure_Bullets(Treasure):
 
 #Define Treasure_Lives
 class Treasure_Lives(Treasure):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, x, y):
+        super().__init__(x, y)
         self.shape("square")
         self.color("green")
         self.lives = 1
