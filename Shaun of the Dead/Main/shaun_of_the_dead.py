@@ -128,7 +128,7 @@ class ShaunOfTheDead:
         self.player = game_player_.Player(self.gameStateManager)
         self.treasure_bullets = treasure_.Treasure_Bullets()
         self.treasure_lives = treasure_.Treasure_Lives()
-        self.enemy_list = enemy_list_.EnemyList(self.gameStartManager, self.gameStateManager)
+        self.enemy_list = enemy_list_.EnemyList(self.gameStateManager)
         self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager)
         self.npc_list = npc_list_.NPCList(self.gameStartManager, self.gameStateManager)
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)

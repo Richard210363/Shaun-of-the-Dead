@@ -5,7 +5,6 @@ import datetime
 
 import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
-#import ListManagement.enemy_list as enemy_list
 
 class Enemy(turtle.Turtle):
     def __init__(self, x, y, type, name, lives, gameStateManager, enemy_list):
@@ -15,10 +14,9 @@ class Enemy(turtle.Turtle):
         self.penup()
         self.speed(0)
         self.gold = 25
-        #self.goto(x, y)
         self.direction = random.choice(['up', 'down', 'left', 'right'])
         self.can_kill = True
-        self.then_move=datetime.datetime.now() #NB: We don't actually need the word self here.  Self is assumed because we're inside the class at this point
+        self.then_move=datetime.datetime.now()
         self.name = name
         self.then_collision=datetime.datetime.now()
         self.closeFlag = False
@@ -28,7 +26,6 @@ class Enemy(turtle.Turtle):
         self.x_cor=x
         self.y_cor=y
         self.gameStateManager=gameStateManager
-        #self.gameStateManager.appendZombie(self.name) #new
         self.enemy_list=enemy_list
 
     def destroy(self):
