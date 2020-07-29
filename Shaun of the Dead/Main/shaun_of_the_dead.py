@@ -132,7 +132,7 @@ class ShaunOfTheDead:
         self.wall_block_list = wall_block_list_.WallBlockList(self.gameStartManager)
         self.npc_list = npc_list_.NPCList(self.gameStateManager)
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStartManager, self.gameStateManager, self.level_key)
-        self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStartManager, self.gameStateManager, self.level_key)
+        self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStateManager)
 
         if start_mode.upper()== "N":
             self.level_key="1"
@@ -142,7 +142,7 @@ class ShaunOfTheDead:
         self.enemy_list.fill_enemy_list()
         self.wall_block_list.fill_wall_list(self.level_key)
         self.treasure_lives_list.fill_treasure_lives_list(self.level_key)
-        self.treasure_bullets_list.fill_treasure_bullets_list(self.level_key)
+        self.treasure_bullets_list.fill_treasure_bullets_list()
 
         self.walls = []
         self.bullets = []
