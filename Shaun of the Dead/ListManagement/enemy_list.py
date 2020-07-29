@@ -8,7 +8,7 @@ class EnemyList(object):
         self.gameStateManager = gameStateManager
         self.enemies_list = []
 
-    def fill_enemy_list(self, level_key):
+    def fill_enemy_list(self):
         enemies = self.gameStateManager.get("Enemies")
         for position in range(3):
             single_enemy=enemies[position]
