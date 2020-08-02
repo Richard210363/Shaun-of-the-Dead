@@ -45,7 +45,7 @@ class ShaunOfTheDead:
 
     def moveNPC(self):
         for npc in self.npc_list.npc_list:
-            npc.move(self.walls)
+            npc.move(self.walls, self.player)
 
 
 

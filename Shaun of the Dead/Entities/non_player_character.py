@@ -101,7 +101,7 @@ class NPC(turtle.Turtle):
                 return False
 
 #Move sprite
-    def move(self, walls): #do we really want to pass the player to an NPC?
+    def move(self, walls, player): #do we really want to pass the player to an NPC?
 
 #Set the speed of NPC movement by not moving in too short a time period
         now_move=datetime.datetime.now()      
@@ -140,6 +140,8 @@ class NPC(turtle.Turtle):
 
         if (move_to_x, move_to_y) not in walls:
             self.goto(move_to_x, move_to_y)
+            if self.NPC_AI.found_Shaun(self, player):
+                print("Found Shaun")
 
 #Set direction for next iteration
         self.direction = self.NPC_AI.get_direction()
