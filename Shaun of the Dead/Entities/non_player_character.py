@@ -25,9 +25,6 @@ class NPC(turtle.Turtle):
         self.walls = []
         self.gameStateManager=gameStateManager
         self.then_move=datetime.datetime.now()
-        self.then_collision=datetime.datetime.now()
-        self.closeFlag = False
-        self.can_chase = True
         self.NPC_AI = NPC_AI.NPC_AI()
 
     #Define NPC Movement
@@ -110,44 +107,10 @@ class NPC(turtle.Turtle):
         now_move=datetime.datetime.now()      
         diff_move = now_move - self.then_move
 
-#Determine how long it is since the last collision
-        now_collision=datetime.datetime.now()      
-        diff_collision = now_collision - self.then_collision
-
-#Set the can chase flag based on how long its been since a collision
-        if self.can_chase==False:
-            if diff_collision.seconds>2:
-                self.can_chase=True
-
-
-        #print("Difference:", diff)
-        #print("Days:", diff.days)
-        #print("Microseconds:", diff.microseconds)
-        #print("Seconds:", diff.seconds)
-
         if diff_move.microseconds<300000:  # Set NPC speed here. Lower is faster
             return
 
         self.then_move=now_move
-
-##Is a player close enough to interact with        
-#        if self.can_chase==True:
-#            print("Can Chase Shaun")
-#            self.closeFlag = False
-#            if self.is_close(player):
-#                print("Chasing Shaun")
-#                if player.xcor() < self.xcor():
-#                    self.direction = 'left'
-#                if player.xcor() > self.xcor():
-#                    self.direction = 'right'
-#                if player.ycor() < self.ycor():
-#                    self.direction = 'down'
-#                if player.ycor() > self.ycor():
-#                    self.direction = 'up'
-#                self.closeFlag = True
-#        else:
-#            print("Can't Chase Shaun Yet")
-
 
 #Set sprite picture and movement deltas
         if self.direction == 'up':
@@ -176,10 +139,7 @@ class NPC(turtle.Turtle):
         move_to_y = self.ycor() + dy
 
         if (move_to_x, move_to_y) not in walls:
-
             self.goto(move_to_x, move_to_y)
 
-
 #Set direction for next iteration
-        if self.closeFlag == False:
-            self.direction = self.NPC_AI.get_direction()
+        self.direction = self.NPC_AI.get_direction()
