@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AIManagement\NPC_AI.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataManagement\game_start_manager.py" />
     <Compile Include="DataManagement\initialise_new_game.py">
       <SubType>Code</SubType>
@@ -103,6 +106,7 @@
     <Content Include="User Stories.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AIManagement\" />
     <Folder Include="DataManagement\" />
     <Folder Include="Entities\" />
     <Folder Include="Main\" />

@@ -5,6 +5,7 @@ import datetime
 
 import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
+import AIManagement.NPC_AI as NPC_AI
 
 class NPC(turtle.Turtle):
     def __init__(self, x, y, bullets, name, lives, gameStateManager, npc_list):
@@ -27,6 +28,7 @@ class NPC(turtle.Turtle):
         self.then_collision=datetime.datetime.now()
         self.closeFlag = False
         self.can_chase = True
+        self.NPC_AI = NPC_AI.NPC_AI()
 
     #Define NPC Movement
     def go_up(self):
@@ -180,4 +182,4 @@ class NPC(turtle.Turtle):
 
 #Set direction for next iteration
         if self.closeFlag == False:
-            self.direction = random.choice(['up', 'down', 'left', 'right'])
+            self.direction = self.NPC_AI.get_direction()
