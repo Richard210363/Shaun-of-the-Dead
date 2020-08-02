@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AIManagement\NPC_movement.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataManagement\game_start_manager.py" />
     <Compile Include="DataManagement\initialise_new_game.py">
       <SubType>Code</SubType>
@@ -107,6 +110,7 @@
     <Folder Include="Entities\" />
     <Folder Include="Main\" />
     <Folder Include="ListManagement\" />
+    <Folder Include="AIManagement\" />
     <Folder Include="UserInterface\" />
     <Folder Include="Tests\" />
     <Folder Include="ResourceManagement\" />
