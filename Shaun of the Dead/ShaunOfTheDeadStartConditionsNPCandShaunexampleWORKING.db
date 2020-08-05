@@ -1534,6 +1534,27 @@
 				}
 			,
 			"Enemies": [
+				{
+					"type": "Zombie",
+					"name": "0",
+					"lives": 3,
+					"x_cor": 96,
+					"y_cor": 168
+				},
+				{
+					"type": "Zombie",
+					"name": "1",
+					"lives": 3,
+					"x_cor": -24,
+					"y_cor": 24
+				},
+				{
+					"type": "Zombie",
+					"name": "2",
+					"lives": 3,
+					"x_cor": 72,
+					"y_cor": -72
+				}
 			],
 			"Treasure_Lives": [
 				[

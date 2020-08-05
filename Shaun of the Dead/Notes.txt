@@ -7,6 +7,8 @@ game state at start should equial game start database
 
 need to make npc list use npc class 
 
+PROBLEM: Detection, move then implement detection which is wrong order should be detection, implement detection, move
+
 
 
 Street level

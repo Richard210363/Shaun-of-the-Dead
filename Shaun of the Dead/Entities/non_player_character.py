@@ -19,7 +19,7 @@ class NPC(turtle.Turtle):
         self.color("blue")
         self.penup()
         self.speed(0)
-        self.direction=""
+        self.direction="down"
         self.can_get_bullets=True
         self.can_get_lives=True
         self.walls = []
@@ -143,5 +143,9 @@ class NPC(turtle.Turtle):
             if self.NPC_AI.found_Shaun(self, player):
                 print("Found Shaun")
 
-#Set direction for next iteration
-        self.direction = self.NPC_AI.get_direction()
+##Set direction for next iteration
+#        self.direction = self.NPC_AI.get_direction_random()
+
+        pass
+        self.NPC_AI.get_direction_searching(self)
+        pass
