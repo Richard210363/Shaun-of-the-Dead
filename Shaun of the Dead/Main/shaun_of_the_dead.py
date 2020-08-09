@@ -169,7 +169,6 @@ class ShaunOfTheDead:
 
         # Main game loop
         while not self.quit:
-            time.sleep(3)
             for enemy in self.enemy_list.enemies_list:
                 if enemy.is_collision_with_player(self.player):
                     self.player.lives -=1

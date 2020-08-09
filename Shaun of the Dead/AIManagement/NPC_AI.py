@@ -23,31 +23,34 @@ class NPC_AI(object):
         return self.Shaun_is_close
 
     def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC):
+        self.randomly = random.randint(1,10000000)
+        print("Begin print - " + str(self.randomly))
         print("NPC.x_cor - " + str(NPC.x_cor))
         print("NPC.y_cor - " + str(NPC.y_cor))
         print("NPC_left_x - " + str(NPC_left_x))
         print("NPC_left_y - " + str(NPC_left_y))
         print("NPC_forward_x - " + str(NPC_forward_x))
         print("NPC_forward_y - " + str(NPC_forward_y))
+        print("End print")
         if(NPC_left_x,NPC_left_y) not in NPC.walls:
             if NPC.direction == "left":
                 NPC.direction = "down"
-            if NPC.direction == "right":
+            elif NPC.direction == "right":
                 NPC.direction = "up"
-            if NPC.direction == "up":
+            elif NPC.direction == "up":
                 NPC.direction = "left"
-            if NPC.direction == "down":
+            elif NPC.direction == "down":
                 NPC.direction = "right"
             return
 
         if (NPC_forward_x,NPC_forward_y) in NPC.walls:
             if NPC.direction == "left":
                 NPC.direction = "up"
-            if NPC.direction == "right":
+            elif NPC.direction == "right":
                 NPC.direction = "down"
-            if NPC.direction == "up":
+            elif NPC.direction == "up":
                 NPC.direction = "right"
-            if NPC.direction == "down":
+            elif NPC.direction == "down":
                 NPC.direction = "left"
             return
         else:
@@ -62,19 +65,19 @@ class NPC_AI(object):
             NPC_forward_x = NPC.x_cor-24
             NPC_forward_y = NPC.y_cor
             self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
-        if NPC.direction == "right":
+        elif NPC.direction == "right":
             NPC_left_x = NPC.x_cor
             NPC_left_y = NPC.y_cor+24
             NPC_forward_x = NPC.x_cor+24
             NPC_forward_y = NPC.y_cor
             self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
-        if NPC.direction == "up":
+        elif NPC.direction == "up":
             NPC_left_x = NPC.x_cor-24
             NPC_left_y = NPC.y_cor
             NPC_forward_x = NPC.x_cor
             NPC_forward_y = NPC.y_cor+24
             self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
-        if NPC.direction == "down":
+        elif NPC.direction == "down":
             NPC_left_x = NPC.x_cor+24
             NPC_left_y = NPC.y_cor
             NPC_forward_x = NPC.x_cor

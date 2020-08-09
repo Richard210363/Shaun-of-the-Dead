@@ -112,6 +112,9 @@ class NPC(turtle.Turtle):
 
         self.then_move=now_move
 
+#Calculate direction
+        self.NPC_AI.get_direction_searching(self)
+
 #Set sprite picture and movement deltas
         if self.direction == 'up':
           dx = 0
@@ -140,6 +143,8 @@ class NPC(turtle.Turtle):
 
         if (move_to_x, move_to_y) not in walls:
             self.goto(move_to_x, move_to_y)
+            self.x_cor = move_to_x
+            self.y_cor = move_to_y
             if self.NPC_AI.found_Shaun(self, player):
                 print("Found Shaun")
 
@@ -147,5 +152,5 @@ class NPC(turtle.Turtle):
 #        self.direction = self.NPC_AI.get_direction_random()
 
         pass
-        self.NPC_AI.get_direction_searching(self)
+
         pass
