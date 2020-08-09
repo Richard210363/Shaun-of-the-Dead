@@ -2,13 +2,7 @@
 This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-game state at start should equial game start database
-
-need to make npc list use npc class 
-
-PROBLEM: Detection, move then implement detection which is wrong order should be detection, implement detection, move
-
+PROBLEM: NPC gets stuck in square loop perhaps depending on the direction you approach/leave him
 
 
 Street level
@@ -34,6 +28,12 @@ This section is stuff to do later
 This is the Done section
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PROBLEM: Detection, move then implement detection which is wrong order should be detection, implement detection, move
+
+game state at start should equial game start database
+
+need to make npc list use npc class 
+
 Quick bug hunt on why Shaun can walk through walls?
 Set Shaun to be at an incorrrect start position
 
