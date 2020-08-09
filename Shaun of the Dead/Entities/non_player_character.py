@@ -27,39 +27,6 @@ class NPC(turtle.Turtle):
         self.then_move=datetime.datetime.now()
         self.NPC_AI = NPC_AI.NPC_AI()
 
-    #Define NPC Movement
-    def go_up(self):
-        move_to_x = self.xcor()
-        move_to_y = self.ycor()+24
-        if(move_to_x,move_to_y) not in self.walls:
-            self.goto(move_to_x,move_to_y)
-            self.shape("Shaun.gif")
-            self.direction="go_up"
-
-    def go_down(self):
-        move_to_x = self.xcor()
-        move_to_y = self.ycor()-24
-        if(move_to_x,move_to_y) not in self.walls:
-            self.goto(move_to_x,move_to_y)
-            self.shape("Shaun.gif")
-            self.direction="go_down"
-
-    def go_left(self):
-        move_to_x = self.xcor()-24
-        move_to_y = self.ycor()
-        if(move_to_x,move_to_y) not in self.walls:
-            self.goto(move_to_x,move_to_y)
-            self.shape("Left_Facing_Shaun.gif")
-            self.direction="go_left"
-
-    def go_right(self):
-        move_to_x = self.xcor()+24
-        move_to_y = self.ycor()
-        if(move_to_x,move_to_y) not in self.walls:
-            self.goto(move_to_x,move_to_y)
-            self.shape("Right_Facing_Shaun.gif")
-            self.direction="go_right"
-   
     #Define NPC Events   
     # def is_collision_with_treasure_bullets(self, other):         
     def is_collision_with_treasure_bullets(self, other):
