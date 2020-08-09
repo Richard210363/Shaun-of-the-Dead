@@ -113,7 +113,7 @@ class NPC(turtle.Turtle):
         self.then_move=now_move
 
 #Calculate direction
-        self.NPC_AI.get_direction_searching(self)
+        self.NPC_AI.get_direction_searching(self, player)
 
 #Set sprite picture and movement deltas
         if self.direction == 'up':
