@@ -8,7 +8,7 @@ class NPC_AI(object):
         self.Shaun_is_close = False
 
     def get_direction_random(self):
-        self.direction = random.choice(['up', 'down', 'left', 'right'])
+        self.direction = random.choice(['go_up', 'go_down', 'go_left', 'go_right'])
         return self.direction
 
     def found_Shaun(self, NPC, player):
@@ -35,52 +35,53 @@ class NPC_AI(object):
         print("End print")
         if self.Shaun_is_close:
             NPC.direction = player.direction
+            return
         if(NPC_left_x,NPC_left_y) not in NPC.walls:
-            if NPC.direction == "left":
-                NPC.direction = "down"
-            elif NPC.direction == "right":
-                NPC.direction = "up"
-            elif NPC.direction == "up":
-                NPC.direction = "left"
-            elif NPC.direction == "down":
-                NPC.direction = "right"
+            if NPC.direction == "go_left":
+                NPC.direction = "go_down"
+            elif NPC.direction == "go_right":
+                NPC.direction = "go_up"
+            elif NPC.direction == "go_up":
+                NPC.direction = "go_left"
+            elif NPC.direction == "go_down":
+                NPC.direction = "go_right"
             return
 
         if (NPC_forward_x,NPC_forward_y) in NPC.walls:
-            if NPC.direction == "left":
-                NPC.direction = "up"
-            elif NPC.direction == "right":
-                NPC.direction = "down"
-            elif NPC.direction == "up":
-                NPC.direction = "right"
-            elif NPC.direction == "down":
-                NPC.direction = "left"
+            if NPC.direction == "go_left":
+                NPC.direction = "go_up"
+            elif NPC.direction == "go_right":
+                NPC.direction = "go_down"
+            elif NPC.direction == "go_up":
+                NPC.direction = "go_right"
+            elif NPC.direction == "go_down":
+                NPC.direction = "go_left"
             return
         else:
             return
 
     def get_direction_searching(self, NPC, player):
         pass
-        if NPC.direction == "left":
+        if NPC.direction == "go_left":
             #NL = "down" x is same y is 24 less than NPC.y_cor
             NPC_left_x = NPC.x_cor
             NPC_left_y = NPC.y_cor-24
             NPC_forward_x = NPC.x_cor-24
             NPC_forward_y = NPC.y_cor
             self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
-        elif NPC.direction == "right":
+        elif NPC.direction == "go_right":
             NPC_left_x = NPC.x_cor
             NPC_left_y = NPC.y_cor+24
             NPC_forward_x = NPC.x_cor+24
             NPC_forward_y = NPC.y_cor
             self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
-        elif NPC.direction == "up":
+        elif NPC.direction == "go_up":
             NPC_left_x = NPC.x_cor-24
             NPC_left_y = NPC.y_cor
             NPC_forward_x = NPC.x_cor
             NPC_forward_y = NPC.y_cor+24
             self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
-        elif NPC.direction == "down":
+        elif NPC.direction == "go_down":
             NPC_left_x = NPC.x_cor+24
             NPC_left_y = NPC.y_cor
             NPC_forward_x = NPC.x_cor

@@ -19,7 +19,7 @@ class NPC(turtle.Turtle):
         self.color("blue")
         self.penup()
         self.speed(0)
-        self.direction="down"
+        self.direction="go_down"
         self.can_get_bullets=True
         self.can_get_lives=True
         self.walls = []
@@ -83,19 +83,19 @@ class NPC(turtle.Turtle):
         self.NPC_AI.get_direction_searching(self, player)
 
 #Set sprite picture and movement deltas
-        if self.direction == 'up':
+        if self.direction == 'go_up':
           dx = 0
           dy = 24
           self.shape("Shaun.gif")
-        elif self.direction == 'down':
+        elif self.direction == 'go_down':
           dx = 0
           dy = -24
           self.shape("Shaun.gif")
-        elif self.direction == 'left':
+        elif self.direction == 'go_left':
           dx = -24
           dy = 0
           self.shape("Left_Facing_Shaun.gif")
-        elif self.direction == 'right':
+        elif self.direction == 'go_right':
           dx = 24
           dy = 0
           self.shape('Right_Facing_Shaun.gif')
