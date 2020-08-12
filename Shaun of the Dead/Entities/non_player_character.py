@@ -86,23 +86,23 @@ class NPC(turtle.Turtle):
         if self.direction == 'go_up':
           dx = 0
           dy = 24
-          self.shape("Shaun.gif")
+          self.shape("Zombie.gif")
         elif self.direction == 'go_down':
           dx = 0
           dy = -24
-          self.shape("Shaun.gif")
+          self.shape("Zombie.gif")
         elif self.direction == 'go_left':
           dx = -24
           dy = 0
-          self.shape("Left_Facing_Shaun.gif")
+          self.shape("Left_Facing_Zombie.gif")
         elif self.direction == 'go_right':
           dx = 24
           dy = 0
-          self.shape('Right_Facing_Shaun.gif')
+          self.shape("Right_Facing_Zombie.gif")
         else:
           dx = 0
           dy = 0
-          self.shape("Shaun.gif")
+          self.shape("Zombie.gif")
 
 #Move
         move_to_x = self.xcor() + dx
