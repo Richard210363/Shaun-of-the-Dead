@@ -17,7 +17,7 @@ class NPC_AI(object):
         b = NPC.ycor() - player.ycor()
         distance = math.sqrt((a **2) + (b **2))
 
-        if distance > 24:
+        if distance > 72:
             self.Shaun_is_close = False
         else:
             self.Shaun_is_close = True
