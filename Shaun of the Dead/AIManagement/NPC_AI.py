@@ -32,7 +32,10 @@ class NPC_AI(object):
         pass
 
     def loop_detected(self):
-        return False
+        if self.direction_loop_list[0] == "go_right" and self.direction_loop_list[1] == "go_up" and self.direction_loop_list[2] == "go_left" and self.direction_loop_list[3] == "go_down":
+            return True
+        else:
+            return False
 
     def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player):
         self.randomly = random.randint(1,10000000)
@@ -101,6 +104,7 @@ class NPC_AI(object):
                     NPC.direction = "go_right"
             return
         else:
+            self.direction_loop_list = ["x", "x", "x", "x"]
             return
 
     def get_direction_searching(self, NPC, player):
