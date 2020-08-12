@@ -6,6 +6,7 @@ class NPC_AI(object):
     def __init__(self):
         self.direction=""
         self.Shaun_is_close = False
+        self.direction_loop_list = ["x", "x", "x", "x"]
 
     def get_direction_random(self):
         self.direction = random.choice(['go_up', 'go_down', 'go_left', 'go_right'])
@@ -23,6 +24,15 @@ class NPC_AI(object):
         
         return self.Shaun_is_close
 
+    def set_direction_loop_list(self, direction):
+        self.direction_loop_list[0] = self.direction_loop_list[1]
+        self.direction_loop_list[1] = self.direction_loop_list[2]
+        self.direction_loop_list[2] = self.direction_loop_list[3]
+        self.direction_loop_list[3] = direction
+
+    def loop_detected(self):
+        return False
+
     def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player):
         self.randomly = random.randint(1,10000000)
         print("Begin print - " + str(self.randomly))
@@ -38,7 +48,11 @@ class NPC_AI(object):
             return
         if(NPC_left_x,NPC_left_y) not in NPC.walls:
             if NPC.direction == "go_left":
-                NPC.direction = "go_down"
+                self.set_direction_loop_list("go_down")
+                if not self.loop_detected():
+                    NPC.direction = "go_down"
+                else:
+                    NPC.direction = "go_up"
             elif NPC.direction == "go_right":
                 NPC.direction = "go_up"
             elif NPC.direction == "go_up":
