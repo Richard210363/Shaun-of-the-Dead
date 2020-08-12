@@ -29,6 +29,7 @@ class NPC_AI(object):
         self.direction_loop_list[1] = self.direction_loop_list[2]
         self.direction_loop_list[2] = self.direction_loop_list[3]
         self.direction_loop_list[3] = direction
+        pass
 
     def loop_detected(self):
         return False
@@ -54,22 +55,50 @@ class NPC_AI(object):
                 else:
                     NPC.direction = "go_up"
             elif NPC.direction == "go_right":
-                NPC.direction = "go_up"
+                self.set_direction_loop_list("go_up")
+                if not self.loop_detected():
+                    NPC.direction = "go_up"
+                else:
+                    NPC.direction = "go_down"
             elif NPC.direction == "go_up":
-                NPC.direction = "go_left"
+                self.set_direction_loop_list("go_left")
+                if not self.loop_detected():
+                    NPC.direction = "go_left"
+                else:
+                    NPC.direction ="go_right"
             elif NPC.direction == "go_down":
-                NPC.direction = "go_right"
+                self.set_direction_loop_list("go_right")
+                if not self.loop_detected():
+                    NPC.direction = "go_right"
+                else:
+                    NPC.direction = "go_left"
             return
 
         if (NPC_forward_x,NPC_forward_y) in NPC.walls:
             if NPC.direction == "go_left":
-                NPC.direction = "go_up"
+                self.set_direction_loop_list("go_up")
+                if not self.loop_detected():
+                    NPC.direction = "go_up"
+                else:
+                    NPC.direction = "go_down"
             elif NPC.direction == "go_right":
-                NPC.direction = "go_down"
+                self.set_direction_loop_list("go_down")
+                if not self.loop_detected():
+                    NPC.direction = "go_down"
+                else:
+                    NPC.direction = "go_up"
             elif NPC.direction == "go_up":
-                NPC.direction = "go_right"
+                self.set_direction_loop_list("go_right")
+                if not self.loop_detected():
+                    NPC.direction = "go_right"
+                else:
+                    NPC.direction = "go_left"
             elif NPC.direction == "go_down":
-                NPC.direction = "go_left"
+                self.set_direction_loop_list("go_left")
+                if not self.loop_detected():
+                    NPC.direction = "go_left"
+                else:
+                    NPC.direction = "go_right"
             return
         else:
             return
