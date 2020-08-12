@@ -2,7 +2,7 @@
 This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-PROBLEM: NPC gets stuck in square loop perhaps depending on the direction you approach/leave him
+What do we want NPC to do when found Shaun
 
 
 Street level
@@ -28,6 +28,8 @@ This section is stuff to do later
 This is the Done section
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PROBLEM: NPC gets stuck in square loop perhaps depending on the direction you approach/leave him
+
 PROBLEM: Detection, move then implement detection which is wrong order should be detection, implement detection, move
 
 game state at start should equial game start database
