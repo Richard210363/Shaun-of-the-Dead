@@ -19,7 +19,7 @@ class Player(turtle.Turtle):
         self.color("blue")
         self.penup()
         self.speed(0)
-        self.direction=""
+        self.direction="go_down"
         self.can_get_bullets=True
         self.can_get_lives=True
         self.walls = []

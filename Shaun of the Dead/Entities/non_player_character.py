@@ -15,7 +15,7 @@ class NPC(turtle.Turtle):
         self.name=name        
         self.bullets=bullets      
         self.lives=lives
-        self.shape("A")
+        self.shape("arrow-24 - Up.gif")
         self.color("blue")
         self.penup()
         self.speed(0)
@@ -80,6 +80,7 @@ class NPC(turtle.Turtle):
         self.then_move=now_move
 
 #Calculate direction
+        enemy_is_close = False
         for enemy in enemies:
             if self.NPC_AI.found_enemy(self, enemy):
                 self.NPC_AI.orientate_towards_enemy(self, enemy) 
@@ -92,23 +93,23 @@ class NPC(turtle.Turtle):
         if self.direction == 'go_up':
           dx = 0
           dy = 24
-          self.shape("Zombie.gif")
+          self.shape("arrow-24 - Up.gif")
         elif self.direction == 'go_down':
           dx = 0
           dy = -24
-          self.shape("Zombie.gif")
+          self.shape("arrow-24 - Down.gif")
         elif self.direction == 'go_left':
           dx = -24
           dy = 0
-          self.shape("Left_Facing_Zombie.gif")
+          self.shape("arrow-24 - Left.gif")
         elif self.direction == 'go_right':
           dx = 24
           dy = 0
-          self.shape("Right_Facing_Zombie.gif")
+          self.shape("arrow-24 - Right.gif")
         else:
           dx = 0
           dy = 0
-          self.shape("Zombie.gif")
+          self.shape("arrow-24 - Up.gif")
 
 #Move
         move_to_x = self.xcor() + dx
