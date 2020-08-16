@@ -114,6 +114,10 @@ class ShaunOfTheDead:
         turtle.register_shape("Right_Facing_Shaun.gif")
         turtle.register_shape("Wall.gif")
         turtle.register_shape("Gun.gif")
+        turtle.register_shape("arrow-24 - Down.gif")
+        turtle.register_shape("arrow-24 - Left.gif")
+        turtle.register_shape("arrow-24 - Right.gif")
+        turtle.register_shape("arrow-24 - Up.gif")
 
         #Define the screen
         self.wn = turtle.Screen()
