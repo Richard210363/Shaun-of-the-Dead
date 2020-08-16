@@ -15,7 +15,7 @@ class NPC(turtle.Turtle):
         self.name=name        
         self.bullets=bullets      
         self.lives=lives
-        self.shape("Shaun.gif")
+        self.shape("A")
         self.color("blue")
         self.penup()
         self.speed(0)
