@@ -24,6 +24,25 @@ class NPC_AI(object):
         
         return self.Shaun_is_close
 
+    def found_enemy(self, NPC, enemy):
+        a=NPC.xcor() - enemy.xcor()
+        b = NPC.ycor() - enemy.ycor()
+        distance = math.sqrt((a **2) + (b **2))
+
+        if distance > 120:
+            return False
+        return True
+
+    def orientate_towards_enemy(self, NPC, enemy):
+        if enemy.xcor() > NPC.xcor():
+            NPC.direction = "go_right"
+        elif enemy.xcor() < NPC.xcor():
+            NPC.direction = "go_left"
+        elif enemy.ycor() > NPC.ycor():
+            NPC.direction = "go_up"        
+        elif enemy.ycor() < NPC.ycor():
+            NPC.direction = "go_down"
+            
     def set_direction_loop_list(self, direction):
         self.direction_loop_list[0] = self.direction_loop_list[1]
         self.direction_loop_list[1] = self.direction_loop_list[2]
