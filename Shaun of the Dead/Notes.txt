@@ -3,6 +3,8 @@ This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 What do we want NPC to do when found Shaun
+PROBLEM: Multiple enemies makes the NPC orientation confused
+        Could partially solve this by stopping running the enemy loop once he has found a singular enemy
 
 
 Street level
