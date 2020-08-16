@@ -68,7 +68,7 @@ class NPC(turtle.Turtle):
                 return False
 
 #Move sprite
-    def move(self, walls, player): #do we really want to pass the player to an NPC?
+    def move(self, walls, player, enemies): #do we really want to pass the player to an NPC?
 
 #Set the speed of NPC movement by not moving in too short a time period
         now_move=datetime.datetime.now()      
@@ -80,7 +80,13 @@ class NPC(turtle.Turtle):
         self.then_move=now_move
 
 #Calculate direction
-        self.NPC_AI.get_direction_searching(self, player)
+        for enemy in enemies:
+            if self.NPC_AI.found_enemy(self, enemy):
+                self.NPC_AI.orientate_towards_enemy(self, enemy) 
+                enemy_is_close = True
+        
+        if enemy_is_close == False:
+            self.NPC_AI.get_direction_searching(self, player)
 
 #Set sprite picture and movement deltas
         if self.direction == 'go_up':
@@ -117,7 +123,3 @@ class NPC(turtle.Turtle):
 
 ##Set direction for next iteration
 #        self.direction = self.NPC_AI.get_direction_random()
-
-        pass
-
-        pass
