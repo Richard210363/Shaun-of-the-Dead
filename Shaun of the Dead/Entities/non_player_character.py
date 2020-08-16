@@ -85,7 +85,9 @@ class NPC(turtle.Turtle):
             if self.NPC_AI.found_enemy(self, enemy):
                 self.NPC_AI.orientate_towards_enemy(self, enemy) 
                 enemy_is_close = True
-        
+                if self.NPC_AI.enemy_too_close(self, enemy):
+                    self.NPC_AI.reverse_orientation(self)
+
         if enemy_is_close == False:
             self.NPC_AI.get_direction_searching(self, player)
 

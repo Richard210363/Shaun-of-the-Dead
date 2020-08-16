@@ -29,7 +29,16 @@ class NPC_AI(object):
         b = NPC.ycor() - enemy.ycor()
         distance = math.sqrt((a **2) + (b **2))
 
-        if distance > 120:
+        if distance > 144:
+            return False
+        return True
+
+    def enemy_too_close(self, NPC, enemy):
+        a=NPC.xcor() - enemy.xcor()
+        b = NPC.ycor() - enemy.ycor()
+        distance = math.sqrt((a **2) + (b **2))
+
+        if distance > 48:
             return False
         return True
 
@@ -42,7 +51,17 @@ class NPC_AI(object):
             NPC.direction = "go_up"        
         elif enemy.ycor() < NPC.ycor():
             NPC.direction = "go_down"
-            
+
+    def reverse_orientation(self, NPC):
+        if NPC.direction == "go_left":
+            NPC.direction = "go_right"
+        elif NPC.direction == "go_right":
+            NPC.direction = "go_left"
+        elif NPC.direction == "go_up":
+            NPC.direction = "go_down"
+        elif NPC.direction == "go_down":
+            NPC.direction = "go_up"            
+
     def set_direction_loop_list(self, direction):
         self.direction_loop_list[0] = self.direction_loop_list[1]
         self.direction_loop_list[1] = self.direction_loop_list[2]
