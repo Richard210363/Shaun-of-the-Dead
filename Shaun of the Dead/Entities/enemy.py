@@ -36,7 +36,7 @@ class Enemy(turtle.Turtle):
         self.lives -=1
         if self.lives <= 0:
             self.destroy()
-            print ("Shaun killed a zombie!")
+            #print ("Shaun killed a zombie!")
             self.enemy_list.remove_enemy_from_list(self)
         self.gameStateManager.updateZombie(self.name,self.lives)
 
@@ -81,10 +81,10 @@ class Enemy(turtle.Turtle):
 
 #Is a player close enough to interact with        
         if self.can_chase==True:
-            print("Can Chase Shaun")
+            #print("Can Chase Shaun")
             self.closeFlag = False
             if self.is_close(player):
-                print("Chasing Shaun")
+                #print("Chasing Shaun")
                 if player.xcor() < self.xcor():
                     self.direction = 'left'
                 if player.xcor() > self.xcor():
@@ -95,7 +95,8 @@ class Enemy(turtle.Turtle):
                     self.direction = 'up'
                 self.closeFlag = True
         else:
-            print("Can't Chase Shaun Yet")
+            #print("Can't Chase Shaun Yet")
+            pass
 
 
 #Set sprite picture and movement deltas

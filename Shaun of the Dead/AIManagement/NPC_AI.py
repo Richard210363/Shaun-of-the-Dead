@@ -21,6 +21,7 @@ class NPC_AI(object):
             print("Found Shaun")
 
     def found_enemy(self, NPC, enemy):
+        return False
         a=NPC.xcor() - enemy.xcor()
         b = NPC.ycor() - enemy.ycor()
         distance = math.sqrt((a **2) + (b **2))
@@ -73,14 +74,14 @@ class NPC_AI(object):
 
     def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player):
         self.randomly = random.randint(1,10000000)
-        print("Begin print - " + str(self.randomly))
-        print("NPC.x_cor - " + str(NPC.x_cor))
-        print("NPC.y_cor - " + str(NPC.y_cor))
-        print("NPC_left_x - " + str(NPC_left_x))
-        print("NPC_left_y - " + str(NPC_left_y))
-        print("NPC_forward_x - " + str(NPC_forward_x))
-        print("NPC_forward_y - " + str(NPC_forward_y))
-        print("End print")
+        #print("Begin print - " + str(self.randomly))
+        #print("NPC.x_cor - " + str(NPC.x_cor))
+        #print("NPC.y_cor - " + str(NPC.y_cor))
+        #print("NPC_left_x - " + str(NPC_left_x))
+        #print("NPC_left_y - " + str(NPC_left_y))
+        #print("NPC_forward_x - " + str(NPC_forward_x))
+        #print("NPC_forward_y - " + str(NPC_forward_y))
+        #print("End print")
         if(NPC_left_x,NPC_left_y) not in NPC.walls:
             if NPC.direction == "go_left":
                 self.set_direction_loop_list("go_down")
