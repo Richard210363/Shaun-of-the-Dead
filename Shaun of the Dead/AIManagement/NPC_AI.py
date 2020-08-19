@@ -21,7 +21,6 @@ class NPC_AI(object):
             print("Found Shaun")
 
     def found_enemy(self, NPC, enemy):
-        return False
         a=NPC.xcor() - enemy.xcor()
         b = NPC.ycor() - enemy.ycor()
         distance = math.sqrt((a **2) + (b **2))
