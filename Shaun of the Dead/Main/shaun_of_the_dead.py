@@ -2,6 +2,8 @@ import turtle
 import math
 import pygame
 import time
+from os import path
+import os
 
 import Entities.enemy as enemy_
 import Entities.player as game_player_
@@ -105,19 +107,26 @@ class ShaunOfTheDead:
            
     def start(self, start_mode):
 
+        current = os.getcwd()#<-- absolute dir of the execution root
+        #file_path = path.relpath("\\ASTERIX\Asterix-Data\Code Library\My Python\Shaun of the Dead\Shaun of the Dead\Resources")
+
+        script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+
+
         #Prepare assets
-        turtle.register_shape("Zombie.gif")
-        turtle.register_shape("Left_Facing_Zombie.gif")
-        turtle.register_shape("Right_Facing_Zombie.gif")
-        turtle.register_shape("Shaun.gif")
-        turtle.register_shape("Left_Facing_Shaun.gif")
-        turtle.register_shape("Right_Facing_Shaun.gif")
-        turtle.register_shape("Wall.gif")
-        turtle.register_shape("Gun.gif")
-        turtle.register_shape("arrow-24 - Down.gif")
-        turtle.register_shape("arrow-24 - Left.gif")
-        turtle.register_shape("arrow-24 - Right.gif")
-        turtle.register_shape("arrow-24 - Up.gif")
+        turtle.register_shape("Resources\\Zombie.gif")
+        turtle.register_shape("Resources\\Left_Facing_Zombie.gif")
+        turtle.register_shape("Resources\\Right_Facing_Zombie.gif")
+        turtle.register_shape("Resources\\Shaun.gif")
+        turtle.register_shape("Resources\\Left_Facing_Shaun.gif")
+        turtle.register_shape("Resources\\Right_Facing_Shaun.gif")
+        turtle.register_shape("Resources\\Wall.gif")
+        turtle.register_shape("Resources\\Gun.gif")
+        turtle.register_shape("Resources\\Down_Arrow.gif")
+        turtle.register_shape("Resources\\Left_Arrow.gif")
+        turtle.register_shape("Resources\\Right_Arrow.gif")
+        turtle.register_shape("Resources\\Up_Arrow.gif")   #new remove a /
+
 
         #Define the screen
         self.wn = turtle.Screen()

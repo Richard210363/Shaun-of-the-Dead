@@ -9,7 +9,7 @@ import DataManagement.game_state_manager as game_state_manager
 class Enemy(turtle.Turtle):
     def __init__(self, x, y, type, name, lives, gameStateManager, enemy_list):
         turtle.Turtle.__init__(self)
-        self.shape('Zombie.gif')
+        self.shape('Resources\\Zombie.gif')
         self.color('orange')
         self.penup()
         self.speed(0)
@@ -102,23 +102,23 @@ class Enemy(turtle.Turtle):
         if self.direction == 'up':
           dx = 0
           dy = 24
-          self.shape('Zombie.gif')
+          self.shape('Resources\\Zombie.gif')
         elif self.direction == 'down':
           dx = 0
           dy = -24
-          self.shape('Zombie.gif')
+          self.shape('Resources\\Zombie.gif')
         elif self.direction == 'left':
           dx = -24
           dy = 0
-          self.shape('Left_Facing_Zombie.gif')
+          self.shape('Resources\\Left_Facing_Zombie.gif')
         elif self.direction == 'right':
           dx = 24
           dy = 0
-          self.shape('Right_Facing_Zombie.gif')
+          self.shape('Resources\\Right_Facing_Zombie.gif')
         else:
           dx = 0
           dy = 0
-          self.shape('Zombie.gif')
+          self.shape('Resources\\Zombie.gif')
 
 #Move
         move_to_x = self.xcor() + dx

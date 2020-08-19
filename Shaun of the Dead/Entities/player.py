@@ -15,7 +15,7 @@ class Player(turtle.Turtle):
         self.x_cor=player_from_database["x_cor"]
         self.y_cor=player_from_database["y_cor"]
         self.name=player_from_database["name"]
-        self.shape("Shaun.gif")
+        self.shape("Resources\\Shaun.gif")
         self.color("blue")
         self.penup()
         self.speed(0)
@@ -31,7 +31,7 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()+24
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Shaun.gif")
+            self.shape("Resources\\Shaun.gif")
             self.direction="go_up"
 
     def go_down(self):
@@ -39,7 +39,7 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()-24
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Shaun.gif")
+            self.shape("Resources\\Shaun.gif")
             self.direction="go_down"
 
     def go_left(self):
@@ -47,7 +47,7 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Left_Facing_Shaun.gif")
+            self.shape("Resources\\Left_Facing_Shaun.gif")
             self.direction="go_left"
 
     def go_right(self):
@@ -55,7 +55,7 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Right_Facing_Shaun.gif")
+            self.shape("Resources\\Right_Facing_Shaun.gif")
             self.direction="go_right"
    
     #Define Player Events          

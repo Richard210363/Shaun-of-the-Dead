@@ -19,7 +19,7 @@ class Treasure(turtle.Turtle):
 class Treasure_Bullets(Treasure):
     def __init__(self, x, y):
         super().__init__(x, y)
-        self.shape("Gun.gif")
+        self.shape("Resources\\Gun.gif")
         self.bullets = 10
 
     def GetBullets(self, treasure_type):

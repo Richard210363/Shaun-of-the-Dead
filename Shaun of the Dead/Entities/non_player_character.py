@@ -15,7 +15,7 @@ class NPC(turtle.Turtle):
         self.name=name        
         self.bullets=bullets      
         self.lives=lives
-        self.shape("arrow-24 - Up.gif")
+        self.shape("Resources\\Up_Arrow.gif")
         self.color("blue")
         self.penup()
         self.speed(0)
@@ -95,23 +95,23 @@ class NPC(turtle.Turtle):
         if self.direction == 'go_up':
           dx = 0
           dy = 24
-          self.shape("arrow-24 - Up.gif")
+          self.shape("Resources\\Up_Arrow.gif")
         elif self.direction == 'go_down':
           dx = 0
           dy = -24
-          self.shape("arrow-24 - Down.gif")
+          self.shape("Resources\\Down_Arrow.gif")
         elif self.direction == 'go_left':
           dx = -24
           dy = 0
-          self.shape("arrow-24 - Left.gif")
+          self.shape("Resources\\Left_Arrow.gif")
         elif self.direction == 'go_right':
           dx = 24
           dy = 0
-          self.shape("arrow-24 - Right.gif")
+          self.shape("Resources\\Right_Arrow.gif")
         else:
           dx = 0
           dy = 0
-          self.shape("arrow-24 - Up.gif")
+          self.shape("Resources\\Up_Arrow.gif")
 
 #Move
         move_to_x = self.xcor() + dx
