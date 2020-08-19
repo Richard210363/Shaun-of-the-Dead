@@ -2,8 +2,6 @@ import turtle
 import math
 import pygame
 import time
-from os import path
-import os
 
 import Entities.enemy as enemy_
 import Entities.player as game_player_
@@ -106,13 +104,6 @@ class ShaunOfTheDead:
         self.drawsPlayer()
            
     def start(self, start_mode):
-
-        current = os.getcwd()#<-- absolute dir of the execution root
-        #file_path = path.relpath("\\ASTERIX\Asterix-Data\Code Library\My Python\Shaun of the Dead\Shaun of the Dead\Resources")
-
-        script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-
-
         #Prepare assets
         turtle.register_shape("Resources\\Zombie.gif")
         turtle.register_shape("Resources\\Left_Facing_Zombie.gif")
@@ -126,7 +117,6 @@ class ShaunOfTheDead:
         turtle.register_shape("Resources\\Left_Arrow.gif")
         turtle.register_shape("Resources\\Right_Arrow.gif")
         turtle.register_shape("Resources\\Up_Arrow.gif")   #new remove a /
-
 
         #Define the screen
         self.wn = turtle.Screen()
