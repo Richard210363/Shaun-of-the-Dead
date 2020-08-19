@@ -16,9 +16,14 @@ class NPC_AI(object):
         b = NPC.ycor() - player.ycor()
         distance = math.sqrt((a **2) + (b **2))
 
-        if distance < 72:
-            NPC.direction = player.direction
+        if distance > 72:
+            return False
+        else:
+            return True
             print("Found Shaun")
+
+    def follow_Shaun(self, NPC, player):
+        NPC.direction = player.direction
 
     def found_enemy(self, NPC, enemy):
         a=NPC.xcor() - enemy.xcor()
