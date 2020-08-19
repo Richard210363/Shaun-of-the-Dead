@@ -121,8 +121,7 @@ class NPC(turtle.Turtle):
             self.goto(move_to_x, move_to_y)
             self.x_cor = move_to_x
             self.y_cor = move_to_y
-            if self.NPC_AI.found_Shaun(self, player):
-                print("Found Shaun")
+            self.NPC_AI.found_Shaun(self, player)
 
 ##Set direction for next iteration
 #        self.direction = self.NPC_AI.get_direction_random()

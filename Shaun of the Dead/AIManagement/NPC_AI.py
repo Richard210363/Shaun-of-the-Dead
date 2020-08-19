@@ -5,7 +5,6 @@ class NPC_AI(object):
     """description of class"""
     def __init__(self):
         self.direction=""
-        self.Shaun_is_close = False
         self.direction_loop_list = ["x", "x", "x", "x"]
 
     def get_direction_random(self):
@@ -17,12 +16,9 @@ class NPC_AI(object):
         b = NPC.ycor() - player.ycor()
         distance = math.sqrt((a **2) + (b **2))
 
-        if distance > 72:
-            self.Shaun_is_close = False
-        else:
-            self.Shaun_is_close = True
-        
-        return self.Shaun_is_close
+        if distance < 72:
+            NPC.direction = player.direction
+            print("Found Shaun")
 
     def found_enemy(self, NPC, enemy):
         a=NPC.xcor() - enemy.xcor()
@@ -85,9 +81,6 @@ class NPC_AI(object):
         print("NPC_forward_x - " + str(NPC_forward_x))
         print("NPC_forward_y - " + str(NPC_forward_y))
         print("End print")
-        if self.Shaun_is_close:
-            NPC.direction = player.direction
-            return
         if(NPC_left_x,NPC_left_y) not in NPC.walls:
             if NPC.direction == "go_left":
                 self.set_direction_loop_list("go_down")
