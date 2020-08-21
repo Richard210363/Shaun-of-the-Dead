@@ -91,6 +91,9 @@ class NPC(turtle.Turtle):
         if enemy_is_close == False:
             self.NPC_AI.get_direction_searching(self, player)
 
+        if self.NPC_AI.found_Shaun(self, player):
+            self.NPC_AI.follow_Shaun(self, player)
+
 #Set sprite picture and movement deltas
         if self.direction == 'go_up':
           dx = 0
@@ -121,8 +124,7 @@ class NPC(turtle.Turtle):
             self.goto(move_to_x, move_to_y)
             self.x_cor = move_to_x
             self.y_cor = move_to_y
-            if self.NPC_AI.found_Shaun(self, player):
-                print("Found Shaun")
+            #self.NPC_AI.found_Shaun(self, player)
 
 ##Set direction for next iteration
 #        self.direction = self.NPC_AI.get_direction_random()
