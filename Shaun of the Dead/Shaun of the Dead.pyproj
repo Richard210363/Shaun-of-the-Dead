@@ -49,6 +49,7 @@
     <Compile Include="Main\start_up.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Maths\Bresenham.py" />
     <Compile Include="OldCode\shaun_of_the_dead_24.py" />
     <Compile Include="OldCode\shaun_of_the_dead_23.py" />
     <Compile Include="OldCode\Shaun_of_the_Dead-10 Working.py">
@@ -111,6 +112,7 @@
     <Folder Include="Entities\" />
     <Folder Include="Main\" />
     <Folder Include="ListManagement\" />
+    <Folder Include="Maths\" />
     <Folder Include="UserInterface\" />
     <Folder Include="Tests\" />
     <Folder Include="ResourceManagement\" />
