@@ -43,7 +43,7 @@ class Bresenham(object):
             return [self.x1, self.y1]
 
         self.e2 = 2*self.err
-        print("e2=" + str(self.e2))# from this line to the Return is the core of the Bresenham calculation
+        #print("e2=" + str(self.e2))# from this line to the Return is the core of the Bresenham calculation
         if self.e2 > -self.dy:
             self.err = self.err - self.dy   #We change the Incremental Error here for the next pass through the algorithm
             self.x0 = self.x0 + self.sx

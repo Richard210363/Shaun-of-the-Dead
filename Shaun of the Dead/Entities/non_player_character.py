@@ -82,7 +82,7 @@ class NPC(turtle.Turtle):
 #Calculate direction
         enemy_is_close = False
         for enemy in enemies:
-            if self.NPC_AI.found_enemy(self, enemy):
+            if self.NPC_AI.found_enemy(self, enemy, walls):
                 self.NPC_AI.orientate_towards_enemy(self, enemy) 
                 enemy_is_close = True
                 if self.NPC_AI.enemy_too_close(self, enemy):

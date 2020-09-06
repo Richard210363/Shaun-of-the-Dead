@@ -1,5 +1,6 @@
 import random
 import math
+import Maths.Bresenham as bres_
 
 class NPC_AI(object):
     """description of class"""
@@ -25,13 +26,24 @@ class NPC_AI(object):
     def follow_Shaun(self, NPC, player):
         NPC.direction = player.direction
 
-    def found_enemy(self, NPC, enemy):
+    def found_enemy(self, NPC, enemy, walls):
         a=NPC.xcor() - enemy.xcor()
         b = NPC.ycor() - enemy.ycor()
         distance = math.sqrt((a **2) + (b **2))
 
         if distance > 144:
             return False
+        
+        print ("NPC close to enemy")
+        bres = bres_.Bresenham([NPC.xcor()/24, NPC.ycor()/24], [enemy.xcor()/24, enemy.ycor()/24])
+        while not bres.finished():
+            p = bres.get_next()
+            #print("x" + str(p[0]*24))
+            #print("y" + str(p[1]*24))
+            if((p[0]*24,p[1]*24)) in walls:
+                print ("Wall in the way")
+                return False
+        print ("Wall not in the way")
         return True
 
     def enemy_too_close(self, NPC, enemy):
