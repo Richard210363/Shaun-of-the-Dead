@@ -4,7 +4,7 @@ This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 What do we want NPC to do when found Shaun
 
-TODo~:  Richard to make entity bae class for Player, NPC, Enemies
+TODO:  Richard to make entity base class for Player, NPC, Enemies
 
             
 
@@ -16,6 +16,7 @@ Cornettos is Life
 Zombies to attack after visit to shop
 no weapons
 Door to the house
+Reversing direction when too close isn't the best strategy
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 This section is stuff to do later
