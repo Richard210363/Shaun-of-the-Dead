@@ -5,7 +5,7 @@ This is the what we are going to do
 What do we want NPC to do when found Shaun
 
 TODO:  Richard to make entity base class for Player, NPC, Enemies
-
+ToDo: Richard to look at moving AI code from all entities into a base AI class
             
 
 
