@@ -5,6 +5,7 @@ import datetime
 
 import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
+import Maths.Bresenham as bres
 
 class Enemy(turtle.Turtle):
     def __init__(self, x, y, type, name, lives, gameStateManager, enemy_list):
@@ -42,15 +43,26 @@ class Enemy(turtle.Turtle):
 
  
 #Is the player close to self?  Triggers the hunting response
-    def is_close(self, other):
+    def is_close(self, other, walls):
         a = self.xcor()-other.xcor()
         b = self.ycor()-other.ycor()
        
         distance = math.sqrt((a ** 2) + (b ** 2) )
-        if distance < 150:
-            return True
-        else:
+        if distance > 150:
             return False
+
+        print("======================================")
+        print ("enemy close to player")
+        bres = bres.Bresenham([self.xcor()/24, self.ycor()/24], [other.xcor()/24, other.ycor()/24])
+        while not bres.finished():
+            p = bres.get_next()
+            #print("x" + str(p[0]*24))
+            #print("y" + str(p[1]*24))
+            if((p[0]*24,p[1]*24)) in walls:
+                print ("Wall in the way")
+                return False
+        print ("Wall not in the way")
+        return True
 
 #Move sprite
     def move(self,player,walls):
@@ -83,7 +95,7 @@ class Enemy(turtle.Turtle):
         if self.can_chase==True:
             #print("Can Chase Shaun")
             self.closeFlag = False
-            if self.is_close(player):
+            if self.is_close(player, walls):
                 #print("Chasing Shaun")
                 if player.xcor() < self.xcor():
                     self.direction = 'left'

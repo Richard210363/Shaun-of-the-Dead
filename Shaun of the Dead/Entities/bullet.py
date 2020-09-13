@@ -4,14 +4,14 @@ import math
 import Entities.player as player
 
 class Bullet(turtle.Turtle):
-    def __init__(self,current_player,walls):
+    def __init__(self, entity, walls):
         turtle.Turtle.__init__(self)
         self.shape("circle")
         self.color("blue")
         self.penup()
         self.speed(0)
         self.direction = ""
-        self.current_player = current_player
+        self.current_entity = entity
         self.walls = walls
 
     def destroy(self):
@@ -69,16 +69,16 @@ class Bullet(turtle.Turtle):
         #turtle.ontimer(self.move, t=250)
 
     def set_direction(self):
-        move_to_x = self.current_player.xcor()
-        move_to_y = self.current_player.ycor()
+        move_to_x = self.current_entity.xcor()
+        move_to_y = self.current_entity.ycor()
         self.goto(move_to_x,move_to_y)
-        if(self.current_player.direction=="go_up"):
+        if(self.current_entity.direction=="go_up"):
             self.direction="go_up"
-        if(self.current_player.direction=="go_down"):
+        if(self.current_entity.direction=="go_down"):
             self.direction="go_down"
-        if(self.current_player.direction=="go_left"):
+        if(self.current_entity.direction=="go_left"):
             self.direction="go_left"
-        if(self.current_player.direction=="go_right"):
+        if(self.current_entity.direction=="go_right"):
             self.direction="go_right"
         self.move()
 

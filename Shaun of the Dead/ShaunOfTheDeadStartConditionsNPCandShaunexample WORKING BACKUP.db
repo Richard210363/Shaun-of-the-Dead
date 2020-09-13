@@ -1518,8 +1518,8 @@
 			"NPC": [
 				{
 					"name": "Ed",
-					"lives": 5,
-					"bullets": 10,
+					"lives": 100,
+					"bullets": 100,
 					"x_cor": -240,
 					"y_cor": 216
 				}

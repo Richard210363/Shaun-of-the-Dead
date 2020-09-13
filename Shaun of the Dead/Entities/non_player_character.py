@@ -6,6 +6,8 @@ import datetime
 import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
 import AIManagement.NPC_AI as NPC_AI
+import Entities.bullet as bullet
+import ResourceManagement.sound_effects as sound_effect
 
 class NPC(turtle.Turtle):
     def __init__(self, x, y, bullets, name, lives, gameStateManager, npc_list):
@@ -68,7 +70,7 @@ class NPC(turtle.Turtle):
                 return False
 
 #Move sprite
-    def move(self, walls, player, enemies): #do we really want to pass the player to an NPC?
+    def move(self, walls, player, enemies, bullets): #do we really want to pass the player to an NPC?
 
 #Set the speed of NPC movement by not moving in too short a time period
         now_move=datetime.datetime.now()      
@@ -81,17 +83,22 @@ class NPC(turtle.Turtle):
 
 #Calculate direction
         enemy_is_close = False
+        can_kill_enemy = False
         for enemy in enemies:
             if self.NPC_AI.found_enemy(self, enemy, walls):
                 self.NPC_AI.orientate_towards_enemy(self, enemy) 
                 enemy_is_close = True
-                if self.NPC_AI.enemy_too_close(self, enemy):
-                    self.NPC_AI.reverse_orientation(self)
+                can_kill_enemy = True
+                break
+
+        for enemy in enemies:
+            if self.NPC_AI.enemy_too_close(self, enemy):
+                self.NPC_AI.reverse_orientation(self)
 
         if enemy_is_close == False:
             self.NPC_AI.get_direction_searching(self, player)
 
-        if self.NPC_AI.found_Shaun(self, player):
+        if self.NPC_AI.found_Shaun(self, player, walls):
             self.NPC_AI.follow_Shaun(self, player)
 
 #Set sprite picture and movement deltas
@@ -124,7 +131,13 @@ class NPC(turtle.Turtle):
             self.goto(move_to_x, move_to_y)
             self.x_cor = move_to_x
             self.y_cor = move_to_y
-            #self.NPC_AI.found_Shaun(self, player)
+        if can_kill_enemy:
+            current_bullet = bullet.Bullet(self, walls)
+            bullets.append(current_bullet)
+            current_bullet.set_direction()
+            sound_effect.bulletSound.play()
+
+
 
 ##Set direction for next iteration
 #        self.direction = self.NPC_AI.get_direction_random()

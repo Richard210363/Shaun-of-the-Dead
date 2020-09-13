@@ -12,16 +12,26 @@ class NPC_AI(object):
         self.direction = random.choice(['go_up', 'go_down', 'go_left', 'go_right'])
         return self.direction
 
-    def found_Shaun(self, NPC, player):
+    def found_Shaun(self, NPC, player, walls):
         a=NPC.xcor() - player.xcor()
         b = NPC.ycor() - player.ycor()
         distance = math.sqrt((a **2) + (b **2))
 
         if distance > 72:
             return False
-        else:
-            return True
-            print("Found Shaun")
+
+        print("======================================")
+        print ("NPC close to player")
+        bres = bres_.Bresenham([NPC.xcor()/24, NPC.ycor()/24], [player.xcor()/24, player.ycor()/24])
+        while not bres.finished():
+            p = bres.get_next()
+            #print("x" + str(p[0]*24))
+            #print("y" + str(p[1]*24))
+            if((p[0]*24,p[1]*24)) in walls:
+                print ("Wall in the way")
+                return False
+        print ("Wall not in the way")
+        return True
 
     def follow_Shaun(self, NPC, player):
         NPC.direction = player.direction
@@ -34,6 +44,7 @@ class NPC_AI(object):
         if distance > 144:
             return False
         
+        print("======================================")
         print ("NPC close to enemy")
         bres = bres_.Bresenham([NPC.xcor()/24, NPC.ycor()/24], [enemy.xcor()/24, enemy.ycor()/24])
         while not bres.finished():
