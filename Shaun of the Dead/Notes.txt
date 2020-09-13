@@ -3,9 +3,9 @@ This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 What do we want NPC to do when found Shaun
-PROBLEM: Multiple enemies makes the NPC orientation confused
-        Could partially solve this by stopping running the enemy loop once he has found a singular enemy
-PROBLEM: NPC probably shouldn't detect enemies through walls
+
+TODo~:  Richard to make entity bae class for Player, NPC, Enemies
+
             
 
 
@@ -33,6 +33,7 @@ This section is stuff to do later
 This is the Done section
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PROBLEM: NPC probably shouldn't detect enemies through walls
 PROBLEM: NPC gets stuck in square loop perhaps depending on the direction you approach/leave him
 
 PROBLEM: Detection, move then implement detection which is wrong order should be detection, implement detection, move
