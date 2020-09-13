@@ -5,7 +5,7 @@ import datetime
 
 import Entities.wall_block as wall_block
 import DataManagement.game_state_manager as game_state_manager
-import Maths.Bresenham as bres
+import Maths.Bresenham as bres_
 
 class Enemy(turtle.Turtle):
     def __init__(self, x, y, type, name, lives, gameStateManager, enemy_list):
@@ -53,7 +53,7 @@ class Enemy(turtle.Turtle):
 
         print("======================================")
         print ("enemy close to player")
-        bres = bres.Bresenham([self.xcor()/24, self.ycor()/24], [other.xcor()/24, other.ycor()/24])
+        bres = bres_.Bresenham([self.xcor()/24, self.ycor()/24], [other.xcor()/24, other.ycor()/24])
         while not bres.finished():
             p = bres.get_next()
             #print("x" + str(p[0]*24))

@@ -27,6 +27,7 @@ class NPC(turtle.Turtle):
         self.walls = []
         self.gameStateManager=gameStateManager
         self.then_move=datetime.datetime.now()
+        self.then_fire_bullet = datetime.datetime.now()
         self.NPC_AI = NPC_AI.NPC_AI()
 
     #Define NPC Events   
@@ -94,6 +95,7 @@ class NPC(turtle.Turtle):
         for enemy in enemies:
             if self.NPC_AI.enemy_too_close(self, enemy):
                 self.NPC_AI.reverse_orientation(self)
+                can_kill_enemy = False
 
         if enemy_is_close == False:
             self.NPC_AI.get_direction_searching(self, player)
@@ -131,6 +133,15 @@ class NPC(turtle.Turtle):
             self.goto(move_to_x, move_to_y)
             self.x_cor = move_to_x
             self.y_cor = move_to_y
+
+        now_fire_bullet=datetime.datetime.now()      
+        diff_fire_bullet = now_fire_bullet - self.then_fire_bullet
+
+        if diff_fire_bullet.microseconds<900000:
+            return
+
+        self.then_fire_bullet=now_fire_bullet
+
         if can_kill_enemy:
             current_bullet = bullet.Bullet(self, walls)
             bullets.append(current_bullet)
