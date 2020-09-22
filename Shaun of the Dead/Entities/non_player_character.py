@@ -89,7 +89,7 @@ class NPC(turtle.Turtle):
             if self.NPC_AI.found_enemy(self, enemy, walls):
                 self.NPC_AI.orientate_towards_enemy(self, enemy) 
                 enemy_is_close = True
-                can_kill_enemy = True
+                can_kill_enemy = False
                 break
 
         for enemy in enemies:
