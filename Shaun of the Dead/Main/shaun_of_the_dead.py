@@ -16,6 +16,7 @@ import ListManagement.wall_block_list as wall_block_list_
 import ListManagement.npc_list as npc_list_
 import ListManagement.treasure_lives_list as treasure_lives_list_
 import ListManagement.treasure_bullets_list as treasure_bullets_list_
+import ListManagement.fences_list as fences_list_
 
 class ShaunOfTheDead:
     """description of class"""
@@ -42,7 +43,7 @@ class ShaunOfTheDead:
 
     def moveEnemies(self):
         for enemy in self.enemy_list.enemies_list:
-            enemy.move(self.player,self.walls)
+            enemy.move(self.player,self.walls,self.fences)
 
     def moveNPC(self):
         for npc in self.npc_list.npc_list:
@@ -87,6 +88,12 @@ class ShaunOfTheDead:
         screen_y=self.player.y_cor
         self.player.goto(screen_x, screen_y)
 
+    def fillFences(self):
+        for fence in self.fences_list.fences_list:
+            screen_x=fence[0]
+            screen_y=fence[1]
+            self.fences.append((screen_x,screen_y))
+
     def quit_game(self):
         self.quit = True
 
@@ -102,6 +109,7 @@ class ShaunOfTheDead:
         self.drawsTreasureLives()
         self.drawsTreasureBullets()
         self.drawsPlayer()
+        self.fillFences()
            
     def start(self, start_mode):
         #Prepare assets
@@ -135,6 +143,7 @@ class ShaunOfTheDead:
         self.npc_list = npc_list_.NPCList(self.gameStateManager)
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStateManager)
         self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStateManager)
+        self.fences_list = fences_list_.FencesList(self.gameStateManager)
 
         if start_mode.upper()== "N":
             self.level_key="1"
@@ -145,9 +154,11 @@ class ShaunOfTheDead:
         self.wall_block_list.fill_wall_list()
         self.treasure_lives_list.fill_treasure_lives_list()
         self.treasure_bullets_list.fill_treasure_bullets_list()
+        self.fences_list.fill_fences_list()
 
         self.walls = []
         self.bullets = []
+        self.fences = []
 
         self.player.walls = self.walls
 

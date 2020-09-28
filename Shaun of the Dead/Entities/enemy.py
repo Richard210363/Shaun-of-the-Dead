@@ -65,7 +65,7 @@ class Enemy(turtle.Turtle):
         return True
 
 #Move sprite
-    def move(self,player,walls):
+    def move(self,player,walls,fences):
 
 #Set the speed of Enemy movement by not moving in too short a time period
         now_move=datetime.datetime.now()      
@@ -138,8 +138,9 @@ class Enemy(turtle.Turtle):
         move_to_y = self.ycor() + dy
 
         if (move_to_x, move_to_y) not in walls:
+            if (move_to_x, move_to_y) not in fences:
 
-            self.goto(move_to_x, move_to_y)
+                self.goto(move_to_x, move_to_y)
 
 
 #Set direction for next iteration
