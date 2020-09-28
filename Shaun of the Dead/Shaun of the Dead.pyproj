@@ -89,6 +89,9 @@
     <Compile Include="OldCode\Shaun_of_the_Dead_20.py" />
     <Compile Include="OldCode\Shaun_of_the_Dead_19.py" />
     <Compile Include="OldCode\Shaun_of_the_Dead_18.py" />
+    <Compile Include="pylint_ignore.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ResourceManagement\sound_effects.py">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".pylintrc" />
     <Content Include="Notes.txt" />
     <Content Include="style_guide.txt" />
     <Content Include="User Stories.txt" />
