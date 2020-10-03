@@ -7,17 +7,18 @@ class GameStateManager(object):
         #self.initialiseDatabase()
         self.load(self.location)
         self.saveMemoryVersionOfDatabaseToFile()
+        self.memoryVersionOfDatabase
 
     # These methods deal with Get/Set data into the memory
     # These methods are intermediary methods between the application and the methods that really "talk" to the file database
     
     def load(self , location):
-       if os.path.exists(location):
+        if os.path.exists(location):
            self.loadMemoryVersionOfDatabaseFromFile()
-       else:
-           self.initialiseDatabase() #new
-           self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  
-       return True
+        else:
+            self.initialiseDatabase() #new
+            self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  
+        return True
 
     def initialiseDatabase(self): #new
         try:
@@ -81,8 +82,8 @@ class GameStateManager(object):
         self.memoryVersionOfDatabase = json.load(open(self.location , "r")) 
 
     def saveMemoryVersionOfDatabaseToFile(self):
-        try:
-           json.dump(self.memoryVersionOfDatabase , open(self.location, "w+"))
-           return True
-        except:
+         try:
+            json.dump(self.memoryVersionOfDatabase , open(self.location, "w+"))
+            return True
+         except:
             return False

@@ -7,6 +7,7 @@ class NPC_AI(object):
     def __init__(self):
         self.direction=""
         self.direction_loop_list = ["x", "x", "x", "x"]
+        self.randomly = random.randint(1,10000000)
 
     def get_direction_random(self):
         self.direction = random.choice(['go_up', 'go_down', 'go_left', 'go_right'])
@@ -100,7 +101,6 @@ class NPC_AI(object):
             return False
 
     def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player):
-        self.randomly = random.randint(1,10000000)
         #print("Begin print - " + str(self.randomly))
         #print("NPC.x_cor - " + str(NPC.x_cor))
         #print("NPC.y_cor - " + str(NPC.y_cor))

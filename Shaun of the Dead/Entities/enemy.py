@@ -4,11 +4,10 @@ import random
 import datetime
 
 import Entities.wall_block as wall_block
-import DataManagement.game_state_manager as game_state_manager
 import Maths.Bresenham as bres_
 
 class Enemy(turtle.Turtle):
-    def __init__(self, x, y, type, name, lives, gameStateManager, enemy_list):
+    def __init__(self, x, y, enemyType, name, lives, gameStateManager, enemy_list):
         turtle.Turtle.__init__(self)
         self.shape('Resources\\Zombie.gif')
         self.color('orange')
@@ -23,7 +22,7 @@ class Enemy(turtle.Turtle):
         self.closeFlag = False
         self.can_chase = True
         self.lives=lives
-        self.type=type
+        self.type=enemyType
         self.x_cor=x
         self.y_cor=y
         self.gameStateManager=gameStateManager
@@ -113,25 +112,25 @@ class Enemy(turtle.Turtle):
 
 #Set sprite picture and movement deltas
         if self.direction == 'up':
-          dx = 0
-          dy = 24
-          self.shape('Resources\\Zombie.gif')
+           dx = 0
+           dy = 24
+           self.shape('Resources\\Zombie.gif')
         elif self.direction == 'down':
-          dx = 0
-          dy = -24
-          self.shape('Resources\\Zombie.gif')
+           dx = 0
+           dy = -24
+           self.shape('Resources\\Zombie.gif')
         elif self.direction == 'left':
-          dx = -24
-          dy = 0
-          self.shape('Resources\\Left_Facing_Zombie.gif')
+           dx = -24
+           dy = 0
+           self.shape('Resources\\Left_Facing_Zombie.gif')
         elif self.direction == 'right':
-          dx = 24
-          dy = 0
-          self.shape('Resources\\Right_Facing_Zombie.gif')
+           dx = 24
+           dy = 0
+           self.shape('Resources\\Right_Facing_Zombie.gif')
         else:
-          dx = 0
-          dy = 0
-          self.shape('Resources\\Zombie.gif')
+           dx = 0
+           dy = 0
+           self.shape('Resources\\Zombie.gif')
 
 #Move
         move_to_x = self.xcor() + dx

@@ -11,12 +11,12 @@ class GameStartManager(object):
     # These methods are intermediary methods between the application and the methods that really "talk" to the file database
     
     def load(self , location):
-       if os.path.exists(location):
-           self.loadMemoryVersionOfDatabaseFromFile()
-       else:
-           #self.initialiseDatabase() #new
-           self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  
-       return True
+        if os.path.exists(location):
+             self.loadMemoryVersionOfDatabaseFromFile()
+        else:
+            #self.initialiseDatabase() #new
+            self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  
+        return True
 
     def initialiseDatabase(self): #new
         try:
@@ -93,7 +93,7 @@ class GameStartManager(object):
 
     def saveMemoryVersionOfDatabaseToFile(self):
         try:
-           json.dump(self.memoryVersionOfDatabase , open(self.location, "w+"))
-           return True
+            json.dump(self.memoryVersionOfDatabase , open(self.location, "w+"))
+            return True
         except:
             return False
