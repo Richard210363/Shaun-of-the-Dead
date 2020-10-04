@@ -22,8 +22,15 @@ class Player(turtle.Turtle):
         self.direction="go_down"
         self.can_get_bullets=True
         self.can_get_lives=True
+        self.has_entered_safe_area=False
         self.walls = []
+        self.safe_area = []
         self.gameStateManager=gameStateManager
+
+    def check_entered_safe_area(self,move_to_x,move_to_y):
+        if self.has_entered_safe_area == False:
+            if (move_to_x,move_to_y) in self.safe_area:
+                self.has_entered_safe_area = True
 
     #Define Player Movement
     def go_up(self):
@@ -33,6 +40,7 @@ class Player(turtle.Turtle):
             self.goto(move_to_x,move_to_y)
             self.shape("Resources\\Shaun.gif")
             self.direction="go_up"
+            self.check_entered_safe_area(move_to_x,move_to_y)
 
     def go_down(self):
         move_to_x = self.xcor()
@@ -41,6 +49,7 @@ class Player(turtle.Turtle):
             self.goto(move_to_x,move_to_y)
             self.shape("Resources\\Shaun.gif")
             self.direction="go_down"
+            self.check_entered_safe_area(move_to_x,move_to_y)
 
     def go_left(self):
         move_to_x = self.xcor()-24
@@ -49,6 +58,7 @@ class Player(turtle.Turtle):
             self.goto(move_to_x,move_to_y)
             self.shape("Resources\\Left_Facing_Shaun.gif")
             self.direction="go_left"
+            self.check_entered_safe_area(move_to_x,move_to_y)
 
     def go_right(self):
         move_to_x = self.xcor()+24
@@ -57,6 +67,7 @@ class Player(turtle.Turtle):
             self.goto(move_to_x,move_to_y)
             self.shape("Resources\\Right_Facing_Shaun.gif")
             self.direction="go_right"
+            self.check_entered_safe_area(move_to_x,move_to_y)
    
     #Define Player Events          
     def is_collision_with_treasure_bullets(self, other):

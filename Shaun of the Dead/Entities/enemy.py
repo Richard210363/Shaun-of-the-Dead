@@ -20,7 +20,7 @@ class Enemy(turtle.Turtle):
         self.name = name
         self.then_collision=datetime.datetime.now()
         self.closeFlag = False
-        self.can_chase = True
+        self.can_chase = False
         self.lives=lives
         self.type=enemyType
         self.x_cor=x
@@ -77,7 +77,8 @@ class Enemy(turtle.Turtle):
 #Set the can chase flag based on how long its been since a collision
         if self.can_chase==False:
             if diff_collision.seconds>2:
-                self.can_chase=True
+                if player.has_entered_safe_area==True:
+                    self.can_chase=True
 
 
         #print("Difference:", diff)
