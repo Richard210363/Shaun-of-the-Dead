@@ -107,7 +107,7 @@ class Enemy(turtle.Turtle):
                 self.closeFlag = True
         else:
             #print("Can't Chase Shaun Yet")
-            pass
+            self.closeFlag = False
 
 
 #Set sprite picture and movement deltas
