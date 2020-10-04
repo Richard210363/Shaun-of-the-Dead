@@ -5,7 +5,7 @@ class initialise_new_game(object):
     def __init__(self, gameStartManager, gameStateManager):
         self.gameStartManager = gameStartManager
         self.gameStateManager = gameStateManager
-        self.new_game
+        self.new_game = ""
 
     def initialise_level_one(self):
         self.new_game = self.gameStartManager.get_level("1")
