@@ -17,6 +17,7 @@ import ListManagement.npc_list as npc_list_
 import ListManagement.treasure_lives_list as treasure_lives_list_
 import ListManagement.treasure_bullets_list as treasure_bullets_list_
 import ListManagement.fences_list as fences_list_
+import ListManagement.safe_area_list as safe_area_list_
 
 class ShaunOfTheDead:
     """description of class"""
@@ -94,6 +95,12 @@ class ShaunOfTheDead:
             screen_y=fence[1]
             self.fences.append((screen_x,screen_y))
 
+    def fillSafeArea(self):
+        for safe_area in self.safe_area_list.safe_area_list:
+            screen_x=safe_area[0]
+            screen_y=safe_area[1]
+            self.safe_area.append((screen_x,screen_y))
+
     def quit_game(self):
         self.quit = True
 
@@ -110,6 +117,7 @@ class ShaunOfTheDead:
         self.drawsTreasureBullets()
         self.drawsPlayer()
         self.fillFences()
+        self.fillSafeArea()
            
     def start(self, start_mode):
         #Prepare assets
@@ -144,6 +152,7 @@ class ShaunOfTheDead:
         self.treasure_lives_list = treasure_lives_list_.TreasureLivesList(self.gameStateManager)
         self.treasure_bullets_list = treasure_bullets_list_.TreasureBulletsList(self.gameStateManager)
         self.fences_list = fences_list_.FencesList(self.gameStateManager)
+        self.safe_area_list = safe_area_list_.SafeAreaList(self.gameStateManager)
 
         if start_mode.upper()== "N":
             self.level_key="1"
@@ -155,12 +164,17 @@ class ShaunOfTheDead:
         self.treasure_lives_list.fill_treasure_lives_list()
         self.treasure_bullets_list.fill_treasure_bullets_list()
         self.fences_list.fill_fences_list()
+        self.safe_area_list.fill_safe_area_list()
+        
+
 
         self.walls = []
         self.bullets = []
         self.fences = []
+        self.safe_area = []
 
         self.player.walls = self.walls
+        self.player.safe_area = self.safe_area
 
         for player in self.npc_list.npc_list:
             player.walls = self.walls
