@@ -1,6 +1,4 @@
-import turtle
-import Entities.enemy as enemy
-import DataManagement.game_state_manager as game_state_manager
+import Entities.enemy as enemy_
 
 class EnemyList(object):
     """description of class"""
@@ -12,9 +10,7 @@ class EnemyList(object):
         enemies = self.gameStateManager.get("Enemies") 
         for position in range(len(enemies)):
             single_enemy=enemies[position]
-            self.enemies_list.append(enemy.Enemy(single_enemy["x_cor"], single_enemy["y_cor"], single_enemy["type"], single_enemy["name"], single_enemy["lives"], self.gameStateManager, self))
+            self.enemies_list.append(enemy_.Enemy(single_enemy["x_cor"], single_enemy["y_cor"], single_enemy["type"], single_enemy["name"], single_enemy["lives"], self.gameStateManager, self))
 
     def remove_enemy_from_list(self, enemy):
         self.enemies_list.remove(enemy)
-        x=9
-

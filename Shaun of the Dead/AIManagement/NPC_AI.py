@@ -100,7 +100,7 @@ class NPC_AI(object):
         else:
             return False
 
-    def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player):
+    def set_NPC_direction(self,NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC):
         #print("Begin print - " + str(self.randomly))
         #print("NPC.x_cor - " + str(NPC.x_cor))
         #print("NPC.y_cor - " + str(NPC.y_cor))
@@ -174,25 +174,25 @@ class NPC_AI(object):
             NPC_left_y = NPC.y_cor-24
             NPC_forward_x = NPC.x_cor-24
             NPC_forward_y = NPC.y_cor
-            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
+            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
         elif NPC.direction == "go_right":
             NPC_left_x = NPC.x_cor
             NPC_left_y = NPC.y_cor+24
             NPC_forward_x = NPC.x_cor+24
             NPC_forward_y = NPC.y_cor
-            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
+            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
         elif NPC.direction == "go_up":
             NPC_left_x = NPC.x_cor-24
             NPC_left_y = NPC.y_cor
             NPC_forward_x = NPC.x_cor
             NPC_forward_y = NPC.y_cor+24
-            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
+            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
         elif NPC.direction == "go_down":
             NPC_left_x = NPC.x_cor+24
             NPC_left_y = NPC.y_cor
             NPC_forward_x = NPC.x_cor
             NPC_forward_y = NPC.y_cor-24
-            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC,player)
+            self.set_NPC_direction(NPC_left_x,NPC_left_y,NPC_forward_x,NPC_forward_y,NPC)
 
         #if NPC doesn't have a wall left then turn left
         #    if NPC doesn't have a space in front then turn right

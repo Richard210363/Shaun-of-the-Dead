@@ -1,4 +1,3 @@
-import turtle
 import Entities.treasure as treasure
 
 class TreasureBulletsList(object):

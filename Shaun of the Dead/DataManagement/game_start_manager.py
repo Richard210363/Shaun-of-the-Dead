@@ -12,7 +12,7 @@ class GameStartManager(object):
     
     def load(self , location):
         if os.path.exists(location):
-             self.loadMemoryVersionOfDatabaseFromFile()
+            self.loadMemoryVersionOfDatabaseFromFile()
         else:
             #self.initialiseDatabase() #new
             self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  

@@ -1,10 +1,5 @@
 import turtle
 import math
-import random
-import datetime
-
-import Entities.wall_block as wall_block
-import DataManagement.game_state_manager as game_state_manager
 
 class Player(turtle.Turtle):
     def __init__(self, gameStateManager):

@@ -1,5 +1,3 @@
-import DataManagement.game_state_manager as game_state_manager_
-
 class initialise_new_game(object):
     """description of class"""
     def __init__(self, gameStartManager, gameStateManager):

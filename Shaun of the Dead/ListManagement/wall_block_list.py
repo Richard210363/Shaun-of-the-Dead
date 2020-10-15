@@ -1,5 +1,3 @@
-import turtle
-
 class WallBlockList:
     """description of class"""
     def __init__(self, gameStateManager):

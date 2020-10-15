@@ -14,7 +14,7 @@ class GameStateManager(object):
     
     def load(self , location):
         if os.path.exists(location):
-           self.loadMemoryVersionOfDatabaseFromFile()
+            self.loadMemoryVersionOfDatabaseFromFile()
         else:
             self.initialiseDatabase() #new
             self.loadMemoryVersionOfDatabaseFromFile()  #why do this when we just set memoryVersionOfDatabase?  
@@ -82,8 +82,8 @@ class GameStateManager(object):
         self.memoryVersionOfDatabase = json.load(open(self.location , "r")) 
 
     def saveMemoryVersionOfDatabaseToFile(self):
-         try:
+        try:
             json.dump(self.memoryVersionOfDatabase , open(self.location, "w+"))
             return True
-         except:
+        except:
             return False

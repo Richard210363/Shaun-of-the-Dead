@@ -1,16 +1,13 @@
 import turtle
 import math
-import random
 import datetime
 
-import Entities.wall_block as wall_block
-import DataManagement.game_state_manager as game_state_manager
 import AIManagement.NPC_AI as NPC_AI
 import Entities.bullet as bullet
 import ResourceManagement.sound_effects as sound_effect
 
 class NPC(turtle.Turtle):
-    def __init__(self, x, y, bullets, name, lives, gameStateManager, npc_list):
+    def __init__(self, x, y, bullets, name, lives, gameStateManager):
         turtle.Turtle.__init__(self)
         self.x_cor=x
         self.y_cor=y
@@ -105,25 +102,25 @@ class NPC(turtle.Turtle):
 
 #Set sprite picture and movement deltas
         if self.direction == 'go_up':
-          dx = 0
-          dy = 24
-          self.shape("Resources\\Up_Arrow.gif")
+            dx = 0
+            dy = 24
+            self.shape("Resources\\Up_Arrow.gif")
         elif self.direction == 'go_down':
-          dx = 0
-          dy = -24
-          self.shape("Resources\\Down_Arrow.gif")
+            dx = 0
+            dy = -24
+            self.shape("Resources\\Down_Arrow.gif")
         elif self.direction == 'go_left':
-          dx = -24
-          dy = 0
-          self.shape("Resources\\Left_Arrow.gif")
+            dx = -24
+            dy = 0
+            self.shape("Resources\\Left_Arrow.gif")
         elif self.direction == 'go_right':
-          dx = 24
-          dy = 0
-          self.shape("Resources\\Right_Arrow.gif")
+            dx = 24
+            dy = 0
+            self.shape("Resources\\Right_Arrow.gif")
         else:
-          dx = 0
-          dy = 0
-          self.shape("Resources\\Up_Arrow.gif")
+            dx = 0
+            dy = 0
+            self.shape("Resources\\Up_Arrow.gif")
 
 #Move
         move_to_x = self.xcor() + dx

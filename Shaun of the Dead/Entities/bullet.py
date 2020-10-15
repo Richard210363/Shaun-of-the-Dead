@@ -1,8 +1,6 @@
 import turtle
 import math
 
-import Entities.player as player
-
 class Bullet(turtle.Turtle):
     def __init__(self, entity, walls):
         turtle.Turtle.__init__(self)

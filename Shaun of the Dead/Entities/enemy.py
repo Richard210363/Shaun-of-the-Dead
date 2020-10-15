@@ -3,7 +3,6 @@ import math
 import random
 import datetime
 
-import Entities.wall_block as wall_block
 import Maths.Bresenham as bres_
 
 class Enemy(turtle.Turtle):
@@ -113,25 +112,25 @@ class Enemy(turtle.Turtle):
 
 #Set sprite picture and movement deltas
         if self.direction == 'up':
-           dx = 0
-           dy = 24
-           self.shape('Resources\\Zombie.gif')
+            dx = 0
+            dy = 24
+            self.shape('Resources\\Zombie.gif')
         elif self.direction == 'down':
-           dx = 0
-           dy = -24
-           self.shape('Resources\\Zombie.gif')
+            dx = 0
+            dy = -24
+            self.shape('Resources\\Zombie.gif')
         elif self.direction == 'left':
-           dx = -24
-           dy = 0
-           self.shape('Resources\\Left_Facing_Zombie.gif')
+            dx = -24
+            dy = 0
+            self.shape('Resources\\Left_Facing_Zombie.gif')
         elif self.direction == 'right':
-           dx = 24
-           dy = 0
-           self.shape('Resources\\Right_Facing_Zombie.gif')
+            dx = 24
+            dy = 0
+            self.shape('Resources\\Right_Facing_Zombie.gif')
         else:
-           dx = 0
-           dy = 0
-           self.shape('Resources\\Zombie.gif')
+            dx = 0
+            dy = 0
+            self.shape('Resources\\Zombie.gif')
 
 #Move
         move_to_x = self.xcor() + dx
