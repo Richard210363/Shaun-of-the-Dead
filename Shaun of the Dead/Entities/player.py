@@ -63,7 +63,12 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()+24
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Resources\\Shaun.gif")
+            filename = self.go_up_list[self.current_frame]
+            if self.current_frame == len(self.go_up_list) - 1:
+                self.current_frame = 0
+            else:
+                self.current_frame = self.current_frame + 1
+            self.shape(constant.shaun_animation_up + "\\" + filename)
             self.direction="go_up"
             self.check_entered_safe_area(move_to_x,move_to_y)
 
@@ -72,7 +77,12 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()-24
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Resources\\Shaun.gif")
+            filename = self.go_down_list[self.current_frame]
+            if self.current_frame == len(self.go_down_list) - 1:
+                self.current_frame = 0
+            else:
+                self.current_frame = self.current_frame + 1
+            self.shape(constant.shaun_animation_down + "\\" + filename)
             self.direction="go_down"
             self.check_entered_safe_area(move_to_x,move_to_y)
 
@@ -81,7 +91,12 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Resources\\Left_Facing_Shaun.gif")
+            filename = self.go_left_list[self.current_frame]
+            if self.current_frame == len(self.go_left_list) - 1:
+                self.current_frame = 0
+            else:
+                self.current_frame = self.current_frame + 1
+            self.shape(constant.shaun_animation_left + "\\" + filename)
             self.direction="go_left"
             self.check_entered_safe_area(move_to_x,move_to_y)
 
@@ -90,7 +105,12 @@ class Player(turtle.Turtle):
         move_to_y = self.ycor()
         if(move_to_x,move_to_y) not in self.walls:
             self.goto(move_to_x,move_to_y)
-            self.shape("Resources\\Right_Facing_Shaun.gif")
+            filename = self.go_right_list[self.current_frame]
+            if self.current_frame == len(self.go_right_list) - 1:
+                self.current_frame = 0
+            else:
+                self.current_frame = self.current_frame + 1
+            self.shape(constant.shaun_animation_right + "\\" + filename)
             self.direction="go_right"
             self.check_entered_safe_area(move_to_x,move_to_y)
    
