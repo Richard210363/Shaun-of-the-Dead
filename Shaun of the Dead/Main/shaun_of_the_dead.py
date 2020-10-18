@@ -137,6 +137,7 @@ class ShaunOfTheDead:
         self.level_key = self.gameStateManager.get("Current_Level")
         self.wallBlock = wall_block_.WallBlock()
         self.player = game_player_.Player(self.gameStateManager)
+        self.player.initialise()
         #self.treasure_bullets = treasure_.Treasure_Bullets()
         #self.treasure_lives = treasure_.Treasure_Lives()
         self.enemy_list = enemy_list_.EnemyList(self.gameStateManager)

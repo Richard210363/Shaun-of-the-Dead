@@ -1,5 +1,7 @@
 import turtle
 import math
+import ListManagement.sprite_list_manager as sprite_list_manager_
+import constant
 
 class Player(turtle.Turtle):
     def __init__(self, gameStateManager):
@@ -20,12 +22,40 @@ class Player(turtle.Turtle):
         self.has_entered_safe_area=False
         self.walls = []
         self.safe_area = []
+        self.go_right_list = []
+        self.go_left_list = []
+        self.go_up_list = []
+        self.go_down_list = []
+        self.current_frame = 0
         self.gameStateManager=gameStateManager
 
     def check_entered_safe_area(self,move_to_x,move_to_y):
         if self.has_entered_safe_area == False:
             if (move_to_x,move_to_y) in self.safe_area:
                 self.has_entered_safe_area = True
+
+    def get_go_right_list(self):
+        '''Preparing list for animation'''
+        self.go_right_list = sprite_list_manager_.load_images(constant.shaun_animation_right)
+
+    def get_go_left_list(self):
+        '''Preparing list for animation'''
+        self.go_left_list = sprite_list_manager_.load_images(constant.shaun_animation_left)
+
+    def get_go_up_list(self):
+        '''Preparing list for animation'''
+        self.go_up_list = sprite_list_manager_.load_images(constant.shaun_animation_up)
+
+    def get_go_down_list(self):
+        '''Preparing list for animation'''
+        self.go_down_list = sprite_list_manager_.load_images(constant.shaun_animation_down)
+
+    def initialise(self):
+        '''Prepares player for use'''
+        self.get_go_right_list()
+        self.get_go_left_list()
+        self.get_go_up_list()
+        self.get_go_down_list()
 
     #Define Player Movement
     def go_up(self):
