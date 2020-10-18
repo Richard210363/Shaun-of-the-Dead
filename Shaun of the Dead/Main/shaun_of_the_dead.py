@@ -23,17 +23,7 @@ class ShaunOfTheDead:
 
     #Define what to do when we fire a bullet
     def fire_bullet(self):
-        if self.player.bullets > 0:
-            self.player.bullets -= 1
-            #Save Bullt state
-            self.gameStateManager.set("bullets" , self.player.bullets) #new
-            print ("Shaun has " + str(self.player.bullets) + " bullets remaining")
-            current_bullet = bullet_.Bullet(self.player,self.walls)
-            self.bullets.append(current_bullet)
-            current_bullet.set_direction()
-            sound_effect_.bulletSound.play()
-        if self.player.bullets == 0:
-            print ("Shaun has no bullets")
+        self.player.fire_bullet(self.bullets)
 
     def moveEnemies(self):
         for enemy in self.enemy_list.enemies_list:

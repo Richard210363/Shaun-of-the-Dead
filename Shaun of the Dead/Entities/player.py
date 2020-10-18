@@ -1,7 +1,9 @@
 import turtle
 import math
-import ListManagement.sprite_list_manager as sprite_list_manager_
 import constant
+import ListManagement.sprite_list_manager as sprite_list_manager_
+import Entities.bullet as bullet_
+import ResourceManagement.sound_effects as sound_effect_
 
 class Player(turtle.Turtle):
     def __init__(self, gameStateManager):
@@ -152,3 +154,16 @@ class Player(turtle.Turtle):
                 return True
             else:
                 return False
+
+    def fire_bullet(self, bullets):
+        if self.bullets > 0:
+            self.bullets -= 1
+            #Save Bullt state
+            self.gameStateManager.set("bullets" , self.bullets) #new
+            print ("Shaun has " + str(self.bullets) + " bullets remaining")
+            current_bullet = bullet_.Bullet(self,self.walls)
+            bullets.append(current_bullet)
+            current_bullet.set_direction()
+            sound_effect_.bulletSound.play()
+        if self.bullets == 0:
+            print ("Shaun has no bullets")
