@@ -1044,7 +1044,7 @@
 				{	
 					"name": "Shaun",
 					"lives": 5,
-					"bullets": 10,
+					"bullets": 10000,
 					"x_cor": 264,
 					"y_cor": -264
 				}

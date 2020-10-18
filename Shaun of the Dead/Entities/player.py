@@ -1,6 +1,7 @@
 import turtle
 import math
 import constant
+import time
 import ListManagement.sprite_list_manager as sprite_list_manager_
 import Entities.bullet as bullet_
 import ResourceManagement.sound_effects as sound_effect_
@@ -155,7 +156,7 @@ class Player(turtle.Turtle):
             else:
                 return False
 
-    def fire_bullet(self, bullets):
+    def fire_bullet(self, bullets, wn):
         if self.bullets > 0:
             self.bullets -= 1
             #Save Bullt state
@@ -165,5 +166,13 @@ class Player(turtle.Turtle):
             bullets.append(current_bullet)
             current_bullet.set_direction()
             sound_effect_.bulletSound.play()
+            for position in range(len(self.go_right_list) - 1):
+                filename = self.go_right_list[self.current_frame]
+                if self.current_frame == len(self.go_right_list) - 1:
+                    self.current_frame = 0
+                else:
+                    self.current_frame = self.current_frame + 1
+                self.shape(constant.shaun_animation_right + "\\" + filename)
+                wn.update()
         if self.bullets == 0:
             print ("Shaun has no bullets")

@@ -23,7 +23,7 @@ class ShaunOfTheDead:
 
     #Define what to do when we fire a bullet
     def fire_bullet(self):
-        self.player.fire_bullet(self.bullets)
+        self.player.fire_bullet(self.bullets, self.wn)
 
     def moveEnemies(self):
         for enemy in self.enemy_list.enemies_list:
