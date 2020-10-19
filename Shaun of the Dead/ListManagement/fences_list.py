@@ -6,4 +6,3 @@ class FencesList:
 
     def fill_fences_list(self):
         self.fences_list = self.gameStateManager.get("Fences")
-        pass

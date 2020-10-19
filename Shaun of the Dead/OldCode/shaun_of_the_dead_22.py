@@ -12,8 +12,6 @@ import Entities.wall_block as wall_block
 import ResourceManagement.sound_effects as sound_effect
 import DataManagement.game_state_manager as game_state_manager
 
-import DatabaseManagement.database_manager as database_manager
-
 x = database_manager.get_x()
 
 #Initialize the GameStateManager

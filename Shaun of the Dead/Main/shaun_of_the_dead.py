@@ -1,9 +1,7 @@
 import turtle
 
 import Entities.player as game_player_
-import Entities.bullet as bullet_
 import Entities.wall_block as wall_block_
-import ResourceManagement.sound_effects as sound_effect_
 import ListManagement.enemy_list as enemy_list_
 import ListManagement.wall_block_list as wall_block_list_
 import ListManagement.npc_list as npc_list_

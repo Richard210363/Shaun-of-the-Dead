@@ -1,7 +1,6 @@
 import turtle
 import math
 import constant
-import time
 import ListManagement.sprite_list_manager as sprite_list_manager_
 import Entities.bullet as bullet_
 import ResourceManagement.sound_effects as sound_effect_

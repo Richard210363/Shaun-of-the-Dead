@@ -92,7 +92,6 @@ class NPC_AI(object):
         self.direction_loop_list[1] = self.direction_loop_list[2]
         self.direction_loop_list[2] = self.direction_loop_list[3]
         self.direction_loop_list[3] = direction
-        pass
 
     def loop_detected(self):
         if self.direction_loop_list[0] == "go_right" and self.direction_loop_list[1] == "go_up" and self.direction_loop_list[2] == "go_left" and self.direction_loop_list[3] == "go_down":
@@ -166,8 +165,7 @@ class NPC_AI(object):
             self.direction_loop_list = ["x", "x", "x", "x"]
             return
 
-    def get_direction_searching(self, NPC, player):
-        pass
+    def get_direction_searching(self, NPC):
         if NPC.direction == "go_left":
             #NL = "down" x is same y is 24 less than NPC.y_cor
             NPC_left_x = NPC.x_cor

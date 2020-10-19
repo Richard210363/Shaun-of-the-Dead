@@ -6,4 +6,3 @@ class SafeAreaList:
 
     def fill_safe_area_list(self):
         self.safe_area_list = self.gameStateManager.get("Safe_Area")
-        pass

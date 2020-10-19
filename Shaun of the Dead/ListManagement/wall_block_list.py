@@ -6,4 +6,3 @@ class WallBlockList:
 
     def fill_wall_list(self):
         self.walls_list = self.gameStateManager.get("Walls")
-        pass

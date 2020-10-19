@@ -6,4 +6,4 @@ import pygame
 #prepare sound
 pygame.mixer.init()
 
-bulletSound = pygame.mixer.Sound('..\Resources\Sounds\laser1.wav')
+bulletSound = pygame.mixer.Sound('..\\Resources\\Sounds\\laser1.wav')
