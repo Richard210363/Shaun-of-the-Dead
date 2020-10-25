@@ -5,10 +5,6 @@ class Shaun_of_the_Dead_20(object):
 import turtle
 import math
 
-import Enemy
-import Player
-import WallBlock
-
 #Prepare assets
 turtle.register_shape("Zombie.gif")
 turtle.register_shape("Left_Facing_Zombie.gif")

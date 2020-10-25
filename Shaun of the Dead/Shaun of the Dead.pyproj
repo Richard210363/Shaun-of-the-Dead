@@ -25,6 +25,7 @@
     <Compile Include="AIManagement\NPC_AI.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="constant.py" />
     <Compile Include="DataManagement\game_start_manager.py" />
     <Compile Include="DataManagement\initialise_new_game.py">
       <SubType>Code</SubType>
@@ -40,6 +41,7 @@
     </Compile>
     <Compile Include="ListManagement\safe_area_list.py" />
     <Compile Include="ListManagement\npc_list.py" />
+    <Compile Include="ListManagement\sprite_list_manager.py" />
     <Compile Include="ListManagement\treasure_bullets_list.py" />
     <Compile Include="ListManagement\treasure_lives_list.py" />
     <Compile Include="ListManagement\fences_list.py" />

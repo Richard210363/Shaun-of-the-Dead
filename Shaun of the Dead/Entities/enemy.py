@@ -92,10 +92,10 @@ class Enemy(turtle.Turtle):
 
 #Is a player close enough to interact with        
         if self.can_chase==True:
-            #print("Can Chase Shaun")
+            print("Can Chase Shaun")
             self.closeFlag = False
             if self.is_close(player, walls):
-                #print("Chasing Shaun")
+                print("Chasing Shaun")
                 if player.xcor() < self.xcor():
                     self.direction = 'left'
                 if player.xcor() > self.xcor():
@@ -106,7 +106,7 @@ class Enemy(turtle.Turtle):
                     self.direction = 'up'
                 self.closeFlag = True
         else:
-            #print("Can't Chase Shaun Yet")
+            print("Can't Chase Shaun Yet")
             self.closeFlag = False
 
 

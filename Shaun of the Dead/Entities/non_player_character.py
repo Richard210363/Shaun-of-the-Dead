@@ -95,7 +95,7 @@ class NPC(turtle.Turtle):
                 can_kill_enemy = False
 
         if enemy_is_close == False:
-            self.NPC_AI.get_direction_searching(self, player)
+            self.NPC_AI.get_direction_searching(self)
 
         if self.NPC_AI.found_Shaun(self, player, walls):
             self.NPC_AI.follow_Shaun(self, player)

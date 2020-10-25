@@ -1,0 +1,5 @@
+shaun_animation_start = "..\\Resources\\ShaunAnimation\\Shaun_Start.gif"
+shaun_animation_right = "..\\Resources\\ShaunAnimation\\Shaun_Right"
+shaun_animation_left = "..\\Resources\\ShaunAnimation\\Shaun_Left"
+shaun_animation_up = "..\\Resources\\ShaunAnimation\\Shaun_Up"
+shaun_animation_down = "..\\Resources\\ShaunAnimation\\Shaun_Down"

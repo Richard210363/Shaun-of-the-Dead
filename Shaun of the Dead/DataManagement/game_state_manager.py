@@ -7,7 +7,7 @@ class GameStateManager(object):
         #self.initialiseDatabase()
         self.load(self.location)
         self.saveMemoryVersionOfDatabaseToFile()
-        self.memoryVersionOfDatabase
+        self.memoryVersionOfDatabase = {}
 
     # These methods deal with Get/Set data into the memory
     # These methods are intermediary methods between the application and the methods that really "talk" to the file database

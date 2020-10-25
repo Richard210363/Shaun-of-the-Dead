@@ -9,7 +9,6 @@ class initialise_new_game(object):
         self.new_game = self.gameStartManager.get_level("1")
         self.gameStateManager.memoryVersionOfDatabase = self.new_game
         self.gameStateManager.saveMemoryVersionOfDatabaseToFile()
-        pass
 
 
 

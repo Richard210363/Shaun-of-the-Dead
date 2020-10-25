@@ -6,12 +6,6 @@ import turtle
 import math
 import pygame
 
-
-import Enemy
-import Player
-import WallBlock
-import SoundEffects as se
-
 #Prepare assets
 turtle.register_shape("Zombie.gif")
 turtle.register_shape("Left_Facing_Zombie.gif")

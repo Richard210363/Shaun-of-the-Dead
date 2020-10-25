@@ -1,9 +1,7 @@
 import turtle
 
 import Entities.player as game_player_
-import Entities.bullet as bullet_
 import Entities.wall_block as wall_block_
-import ResourceManagement.sound_effects as sound_effect_
 import ListManagement.enemy_list as enemy_list_
 import ListManagement.wall_block_list as wall_block_list_
 import ListManagement.npc_list as npc_list_
@@ -23,17 +21,7 @@ class ShaunOfTheDead:
 
     #Define what to do when we fire a bullet
     def fire_bullet(self):
-        if self.player.bullets > 0:
-            self.player.bullets -= 1
-            #Save Bullt state
-            self.gameStateManager.set("bullets" , self.player.bullets) #new
-            print ("Shaun has " + str(self.player.bullets) + " bullets remaining")
-            current_bullet = bullet_.Bullet(self.player,self.walls)
-            self.bullets.append(current_bullet)
-            current_bullet.set_direction()
-            sound_effect_.bulletSound.play()
-        if self.player.bullets == 0:
-            print ("Shaun has no bullets")
+        self.player.fire_bullet(self.bullets, self.wn)
 
     def moveEnemies(self):
         for enemy in self.enemy_list.enemies_list:
@@ -137,6 +125,7 @@ class ShaunOfTheDead:
         self.level_key = self.gameStateManager.get("Current_Level")
         self.wallBlock = wall_block_.WallBlock()
         self.player = game_player_.Player(self.gameStateManager)
+        self.player.initialise()
         #self.treasure_bullets = treasure_.Treasure_Bullets()
         #self.treasure_lives = treasure_.Treasure_Lives()
         self.enemy_list = enemy_list_.EnemyList(self.gameStateManager)
