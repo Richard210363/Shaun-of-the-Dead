@@ -14,7 +14,8 @@ class Player(turtle.Turtle):
         self.x_cor=player_from_database["x_cor"]
         self.y_cor=player_from_database["y_cor"]
         self.name=player_from_database["name"]
-        self.shape("Resources\\Shaun.gif")
+        sprite_list_manager_.register_static_images(constant.shaun_animation_start)
+        self.shape(constant.shaun_animation_start)
         self.color("blue")
         self.penup()
         self.speed(0)

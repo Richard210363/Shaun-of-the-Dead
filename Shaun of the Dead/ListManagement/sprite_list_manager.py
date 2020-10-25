@@ -16,3 +16,10 @@ def load_images(folder_name):
         return filelist
     else:
         raise Exception("Error loading images from " + folder_name + " - Check path?")
+
+def register_static_images(filename):
+    """Registers a single sprite GIF from a folder"""
+    if os.path.exists(filename):
+        turtle.register_shape(filename)
+    else:
+        raise Exception("Error loading images from " + folder_name + " - Check path?")
