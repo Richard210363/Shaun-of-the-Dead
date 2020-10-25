@@ -191,7 +191,7 @@ class ShaunOfTheDead:
                 for bullet in self.bullets:
                     if bullet.is_collision(enemy):
                         bullet.destroy()
-                        enemy.wound()
+                        enemy.wound(self.wn)
 
             for treasure_bullet in self.treasure_bullets_list.treasure_bullets_list:
                 if self.player.is_collision_with_treasure_bullets(treasure_bullet):

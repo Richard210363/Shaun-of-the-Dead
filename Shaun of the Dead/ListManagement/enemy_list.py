@@ -11,6 +11,7 @@ class EnemyList(object):
         for position in range(len(enemies)):
             single_enemy=enemies[position]
             self.enemies_list.append(enemy_.Enemy(single_enemy["x_cor"], single_enemy["y_cor"], single_enemy["type"], single_enemy["name"], single_enemy["lives"], self.gameStateManager, self))
+            self.enemies_list[position].initialise()
 
     def remove_enemy_from_list(self, enemy):
         self.enemies_list.remove(enemy)

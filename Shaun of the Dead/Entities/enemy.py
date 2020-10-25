@@ -2,8 +2,11 @@ import turtle
 import math
 import random
 import datetime
+import constant
+import time
 
 import Maths.Bresenham as bres_
+import ListManagement.sprite_list_manager as sprite_list_manager_
 
 class Enemy(turtle.Turtle):
     def __init__(self, x, y, enemyType, name, lives, gameStateManager, enemy_list):
@@ -26,15 +29,58 @@ class Enemy(turtle.Turtle):
         self.y_cor=y
         self.gameStateManager=gameStateManager
         self.enemy_list=enemy_list
+        self.current_frame = 0
+        self.female_enemy_die_list = []
+        self.female_enemy_go_right_list = []
+        self.female_enemy_go_left_list = []
+        self.female_enemy_go_up_list = []
+        self.female_enemy_go_down_list = []
 
-    def destroy(self):
+    def get_female_enemy_die_list(self):
+        '''Preparing list for animation'''
+        self.female_enemy_die_list = sprite_list_manager_.load_images(constant.female_enemy_die_animation)
+
+    def get_female_enemy_go_right_list(self):
+        '''Preparing list for animation'''
+        self.female_enemy_go_right_list = sprite_list_manager_.load_images(constant.female_enemy_animation_right_injury_0)
+
+    def get_female_enemy_go_left_list(self):
+        '''Preparing list for animation'''
+        self.female_enemy_go_left_list = sprite_list_manager_.load_images(constant.female_enemy_animation_left_injury_0)
+
+    def get_female_enemy_go_up_list(self):
+        '''Preparing list for animation'''
+        self.female_enemy_go_up_list = sprite_list_manager_.load_images(constant.female_enemy_animation_up_injury_0)
+
+    def get_female_enemy_go_down_list(self):
+        '''Preparing list for animation'''
+        self.female_enemy_go_down_list = sprite_list_manager_.load_images(constant.female_enemy_animation_down_injury_0)
+
+    def initialise(self):
+        '''Prepares player for use'''
+        self.get_female_enemy_die_list()
+        self.get_female_enemy_go_right_list()
+        self.get_female_enemy_go_left_list()
+        self.get_female_enemy_go_up_list()
+        self.get_female_enemy_go_down_list()
+
+    def destroy(self, wn):
+        for position in range(len(self.enemy_die_list) - 1):
+            filename = self.enemy_die_list[self.current_frame]
+            if self.current_frame == len(self.enemy_die_list) - 1:
+                self.current_frame = 0
+            else:
+                self.current_frame = self.current_frame + 1
+            self.shape(constant.enemy_die_animation + "\\" + filename)
+            wn.update()
+            time.sleep(0.25)
         self.goto(2000,2000)
         self.hideturtle()
 
-    def wound(self):
+    def wound(self, wn):
         self.lives -=1
         if self.lives <= 0:
-            self.destroy()
+            self.destroy(wn)
             #print ("Shaun killed a zombie!")
             self.enemy_list.remove_enemy_from_list(self)
         self.gameStateManager.updateZombie(self.name,self.lives)
