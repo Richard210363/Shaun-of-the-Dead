@@ -160,54 +160,50 @@ class Enemy(turtle.Turtle):
         if self.direction == 'up':
             dx = 0
             dy = 24
-            print(str(len(self.female_enemy_go_up_list)))
-            print(str(self.current_frame))
-            print("About to go up")
+            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_up_list)))
+            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            print("zombie: " + str(self.name) + "    " + "About to go up")
             filename = self.female_enemy_go_up_list[self.current_frame]
-            print("Has gone up")
-            if self.current_frame == len(self.female_enemy_go_up_list) - 1:
+            print("zombie: " + str(self.name) + "    " + "Has gone up")
+            self.current_frame = self.current_frame + 1
+            if self.current_frame >= len(self.female_enemy_go_up_list) - 1:
                 self.current_frame = 0
-            else:
-                self.current_frame = self.current_frame + 1
             self.shape(constant.female_enemy_animation_up_injury_0 + "\\" + filename)
         elif self.direction == 'down':
             dx = 0
             dy = -24
-            print(str(len(self.female_enemy_go_up_list)))
-            print(str(self.current_frame))
-            print("About to go down")
+            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_down_list)))
+            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            print("zombie: " + str(self.name) + "    " + "About to go down")
             filename = self.female_enemy_go_down_list[self.current_frame]
-            print("Has gone down")
-            if self.current_frame == len(self.female_enemy_go_down_list) - 1:
+            print("zombie: " + str(self.name) + "    " + "Has gone down")
+            self.current_frame = self.current_frame + 1
+            if self.current_frame >= len(self.female_enemy_go_down_list) - 1:
                 self.current_frame = 0
-            else:
-                self.current_frame = self.current_frame + 1
             self.shape(constant.female_enemy_animation_down_injury_0 + "\\" + filename)
         elif self.direction == 'left':
             dx = -24
             dy = 0
-            print(str(len(self.female_enemy_go_up_list)))
-            print(str(self.current_frame))
-            print("About to go left")
+            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_left_list)))
+            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            print("zombie: " + str(self.name) + "    " + "About to go left")
             filename = self.female_enemy_go_left_list[self.current_frame]
-            print("Has gone left")
-            if self.current_frame == len(self.female_enemy_go_left_list) - 1:
+            print("zombie: " + str(self.name) + "    " + "Has gone left")
+            self.current_frame = self.current_frame + 1
+            if self.current_frame >= len(self.female_enemy_go_left_list) - 1:
                 self.current_frame = 0
-            else:
-                self.current_frame = self.current_frame + 1
             self.shape(constant.female_enemy_animation_left_injury_0 + "\\" + filename)
         elif self.direction == 'right':
             dx = 24
             dy = 0
-            print(str(len(self.female_enemy_go_up_list)))
-            print(str(self.current_frame))
-            print("About to go right")
+            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_right_list)))
+            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            print("zombie: " + str(self.name) + "    " + "About to go right")
             filename = self.female_enemy_go_right_list[self.current_frame]
-            print("Has gone right")
-            if self.current_frame == len(self.female_enemy_go_right_list) - 1:
+            print("zombie: " + str(self.name) + "    " + "Has gone right")
+            self.current_frame = self.current_frame + 1
+            if self.current_frame >= len(self.female_enemy_go_right_list) - 1:
                 self.current_frame = 0
-            else:
-                self.current_frame = self.current_frame + 1
             self.shape(constant.female_enemy_animation_right_injury_0 + "\\" + filename)
         else:
             dx = 0
