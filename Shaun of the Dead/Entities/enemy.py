@@ -65,13 +65,9 @@ class Enemy(turtle.Turtle):
         self.get_female_enemy_go_down_list()
 
     def destroy(self, wn):
-        for position in range(len(self.enemy_die_list) - 1):
-            filename = self.enemy_die_list[self.current_frame]
-            if self.current_frame == len(self.enemy_die_list) - 1:
-                self.current_frame = 0
-            else:
-                self.current_frame = self.current_frame + 1
-            self.shape(constant.enemy_die_animation + "\\" + filename)
+        for position in range(len(self.female_enemy_die_list) - 1):
+            filename = self.female_enemy_die_list[position]
+            self.shape(constant.female_enemy_die_animation + "\\" + filename)
             wn.update()
             time.sleep(0.25)
         self.goto(2000,2000)
