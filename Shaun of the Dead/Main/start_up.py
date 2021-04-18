@@ -5,7 +5,7 @@ import DataManagement.initialise_new_game as initialise_new_game_
 import ListManagement.enemy_animation_list as enemy_animation_list_
 import SOTD_DataManagement.data_manager as db_manager
 
-attributes = db_manager.get_player_attributes()
+#attributes = db_manager.get_player_attributes()
 
 gameStartManager=game_start_manager_.GameStartManager("./ShaunOfTheDeadStartConditions.db")
 #gameStartManager=game_start_manager_.GameStartManager("./ShaunOfTheDeadStartConditionsNPCandShaunexample.db")

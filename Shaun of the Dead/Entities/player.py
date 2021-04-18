@@ -10,12 +10,12 @@ import ResourceManagement.sound_effects as sound_effect_
 class Player(turtle.Turtle):
     def __init__(self, gameStateManager):
         turtle.Turtle.__init__(self)
-        player_from_database = db_manager.get_player_attributes()
+        player_from_database = db_manager.get_current_player_attributes()
         self.bullets=player_from_database["bullets"]
         self.lives=player_from_database["lives"]
         self.name=player_from_database["name"]
-        self.x_cor=player_from_database["x_cor"]
-        self.y_cor=player_from_database["y_cor"]
+        self.x_cor=player_from_database["x_coordinate"]
+        self.y_cor=player_from_database["y_coordinate"]
 
         sprite_list_manager_.register_static_images(constant.shaun_animation_start)
         self.shape(constant.shaun_animation_start)
