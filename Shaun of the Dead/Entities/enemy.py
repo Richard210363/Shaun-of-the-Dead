@@ -91,17 +91,17 @@ class Enemy(turtle.Turtle):
         if distance > 150:
             return False
 
-        print("======================================")
-        print ("enemy close to player")
+        #print("======================================")
+        #print ("enemy close to player")
         bres = bres_.Bresenham([self.xcor()/24, self.ycor()/24], [other.xcor()/24, other.ycor()/24])
         while not bres.finished():
             p = bres.get_next()
             #print("x" + str(p[0]*24))
             #print("y" + str(p[1]*24))
             if((p[0]*24,p[1]*24)) in walls:
-                print ("Wall in the way")
+                #print ("Wall in the way")
                 return False
-        print ("Wall not in the way")
+        #print ("Wall not in the way")
         return True
 
 #Move sprite
@@ -134,10 +134,10 @@ class Enemy(turtle.Turtle):
 
 #Is a player close enough to interact with        
         if self.can_chase==True:
-            print("Can Chase Shaun")
+            #print("Can Chase Shaun")
             self.closeFlag = False
             if self.is_close(player, walls):
-                print("Chasing Shaun")
+                #print("Chasing Shaun")
                 if player.xcor() < self.xcor():
                     self.direction = 'left'
                 if player.xcor() > self.xcor():
@@ -148,7 +148,7 @@ class Enemy(turtle.Turtle):
                     self.direction = 'up'
                 self.closeFlag = True
         else:
-            print("Can't Chase Shaun Yet")
+            #print("Can't Chase Shaun Yet")
             self.closeFlag = False
 
 
@@ -156,11 +156,11 @@ class Enemy(turtle.Turtle):
         if self.direction == 'up':
             dx = 0
             dy = 24
-            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_up_list)))
-            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
-            print("zombie: " + str(self.name) + "    " + "About to go up")
+            #print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_up_list)))
+            #print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            #print("zombie: " + str(self.name) + "    " + "About to go up")
             filename = self.female_enemy_go_up_list[self.current_frame]
-            print("zombie: " + str(self.name) + "    " + "Has gone up")
+            #print("zombie: " + str(self.name) + "    " + "Has gone up")
             self.current_frame = self.current_frame + 1
             if self.current_frame >= len(self.female_enemy_go_up_list) - 1:
                 self.current_frame = 0
@@ -168,11 +168,11 @@ class Enemy(turtle.Turtle):
         elif self.direction == 'down':
             dx = 0
             dy = -24
-            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_down_list)))
-            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
-            print("zombie: " + str(self.name) + "    " + "About to go down")
+            #print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_down_list)))
+            #print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            #print("zombie: " + str(self.name) + "    " + "About to go down")
             filename = self.female_enemy_go_down_list[self.current_frame]
-            print("zombie: " + str(self.name) + "    " + "Has gone down")
+            #print("zombie: " + str(self.name) + "    " + "Has gone down")
             self.current_frame = self.current_frame + 1
             if self.current_frame >= len(self.female_enemy_go_down_list) - 1:
                 self.current_frame = 0
@@ -180,11 +180,11 @@ class Enemy(turtle.Turtle):
         elif self.direction == 'left':
             dx = -24
             dy = 0
-            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_left_list)))
-            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
-            print("zombie: " + str(self.name) + "    " + "About to go left")
+            #print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_left_list)))
+            #print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            #print("zombie: " + str(self.name) + "    " + "About to go left")
             filename = self.female_enemy_go_left_list[self.current_frame]
-            print("zombie: " + str(self.name) + "    " + "Has gone left")
+            #print("zombie: " + str(self.name) + "    " + "Has gone left")
             self.current_frame = self.current_frame + 1
             if self.current_frame >= len(self.female_enemy_go_left_list) - 1:
                 self.current_frame = 0
@@ -192,11 +192,11 @@ class Enemy(turtle.Turtle):
         elif self.direction == 'right':
             dx = 24
             dy = 0
-            print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_right_list)))
-            print("zombie: " + str(self.name) + "    " + str(self.current_frame))
-            print("zombie: " + str(self.name) + "    " + "About to go right")
+            #print("zombie: " + str(self.name) + "    " + str(len(self.female_enemy_go_right_list)))
+            #print("zombie: " + str(self.name) + "    " + str(self.current_frame))
+            #print("zombie: " + str(self.name) + "    " + "About to go right")
             filename = self.female_enemy_go_right_list[self.current_frame]
-            print("zombie: " + str(self.name) + "    " + "Has gone right")
+            #print("zombie: " + str(self.name) + "    " + "Has gone right")
             self.current_frame = self.current_frame + 1
             if self.current_frame >= len(self.female_enemy_go_right_list) - 1:
                 self.current_frame = 0

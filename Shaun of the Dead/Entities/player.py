@@ -1,3 +1,4 @@
+import SOTD_DataManagement.data_manager as db_manager
 import turtle
 import math
 import constant
@@ -5,15 +6,17 @@ import ListManagement.sprite_list_manager as sprite_list_manager_
 import Entities.bullet as bullet_
 import ResourceManagement.sound_effects as sound_effect_
 
+
 class Player(turtle.Turtle):
     def __init__(self, gameStateManager):
         turtle.Turtle.__init__(self)
-        player_from_database = gameStateManager.get("Player")
+        player_from_database = db_manager.get_current_player_attributes()
         self.bullets=player_from_database["bullets"]
         self.lives=player_from_database["lives"]
-        self.x_cor=player_from_database["x_cor"]
-        self.y_cor=player_from_database["y_cor"]
         self.name=player_from_database["name"]
+        self.x_cor=player_from_database["x_coordinate"]
+        self.y_cor=player_from_database["y_coordinate"]
+
         sprite_list_manager_.register_static_images(constant.shaun_animation_start)
         self.shape(constant.shaun_animation_start)
         self.color("blue")
@@ -31,6 +34,7 @@ class Player(turtle.Turtle):
         self.go_down_list = []
         self.current_frame = 0
         self.gameStateManager=gameStateManager
+        #attributes = db_manager.get_player_attributes()
 
     def check_entered_safe_area(self,move_to_x,move_to_y):
         if self.has_entered_safe_area == False:
