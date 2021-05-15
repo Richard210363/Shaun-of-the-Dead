@@ -1,24 +1,21 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 This is the what we are going to do
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Y:\Code_Library\My_Python\MySQL Scripts
-send script files and then look at the database
-2 sets of data START
-and the data in current that we set at the start of a level.
-What about SAVE?
-How many tables might we need?
-
-Continue intigration of database via package
-
-
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-This section is stuff to do later
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Singleton
+
+
+
+
+
+What do we want NPC to do when found Shaun
 
 TODO:  Richard to make entity base class for Player, NPC, Enemies
-ToDo: Richard to look at moving AI code from all entities into a base AI class   
+ToDo: Richard to look at moving AI code from all entities into a base AI class
+            
+
+
+
 Street level
 2 shops
 Cornettos is Life
@@ -26,6 +23,13 @@ Zombies to attack after visit to shop
 no weapons
 Door to the house
 Reversing direction when too close isn't the best strategy
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This section is stuff to do later
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -36,233 +40,6 @@ Reversing direction when too close isn't the best strategy
 This is the Done section
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-DRAG WHERE HOLIDAY CAN'T READ THIS
--------------------------------------------
-Package not working problem
-Start with v1 in the Environment
-
-CACHE
-C:\Users\richard\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages
-
-
-1)
-Run my Shaun of the dead code
-
-No module named 'DataManagement.game_start_manager ?????
-Type import DataManagement and look at what the suggestion is.  data_manager ?????
-This shows that packages take presedence over local modules.
-
-2)
-Open SOTD_Database_Communication
-Rename the Modules by adding SOTD
-
-3)
-Make a new package
-
-4)
-remove SOTDDB from the Python Environment
-
-5)
-Add new package to environment
-c:\sotddb-0.2.0-py3-none-any.whl
-
-6)
-Run my Shaun of the dead code
-Type import DataManagement and look at what the suggestion is.  data_manager ?????
-
-7)
-Select DataManagement | go to definition 
-select tab | Open Containing folder
-
-8)
-The wrong code is CACHED!!!!!  Does not always happen NOTE the time.  Adding version 2 brings back version !!!!!!
-
-To demonstrate.
-Remove v2
-Add v1
-Show v1 names in cache
-Remove v1
-Show v1 names NOT in cache
-Add v2
-Show v1 and v2 names in cache !!!!!!!
-
-Delete crap from cache
-
-9)
-Type import SOTD_DataManagement and look at what the suggestion is.  data_manager COOL
-
-10) Add these 2 lines to start_up.py
-
-import SOTD_DataManagement.data_manager as dm
-attributes = dm.get_player_attributes()
-
-
-THERE MUST BE DATA IN THE DATABASE
-select * from player_start_conditions;
-INSERT INTO player_start_conditions (name, lives, bullets) VALUES ("Bob", 10, 100)Discuss Unit Testing
-
-
-
-Discuss Interfaces / Contracts
-Discuss IOD 
-
-
-What do we want NPC to do when found Shaun
-
-
-
-
-MySQL
-
-Drop tables from sotd
-Create the EER diagram (or use the one I've made)
-PUT THE FOREIGN KEYS INTO THE CHILD TABLES
-Run Forward Engineer
-Note it breaks
-Take a look at the SQL
-Edit the SQL
-Complain bitterly.
-
-
-Run
-==================================================
-INSERT INTO `sotd`.`user_game_state`
-(`user_id`,
-`current_level`,
-`current_score`)
-VALUES
-(1,
-1,
-0);
-
-select * from user_game_state
-====================================================
-KEY CONSTRAINT
-
-Run
-==================================================
-INSERT INTO `sotd`.`users`
-(`family_name`,
-`given_name`,
-`password`,
-`username`,
-`email`,
-`create_datetime`,
-`modified_datetime`)
-VALUES
-('Byrne',
-'Richard',
-'password01',
-'Richard210363',
-'richard.login@gmail.com',
-NOW(),
-NOW());
-
-select * from users;
-====================================================
-
-Run
-==================================================
-INSERT INTO `sotd`.`user_game_state`
-(`user_id`,
-`current_level`,
-`current_score`)
-VALUES
-(1,
-1,
-0);
-
-select * from user_game_state
-====================================================
-
-Run
-==================================================
-INSERT INTO `sotd`.`users`
-(`family_name`,
-`given_name`,
-`password`,
-`username`,
-`email`,
-`create_datetime`,
-`modified_datetime`)
-VALUES
-('Byrne',
-'Richard',
-'password01',
-'Richard210363',
-'richard.login@gmail.com',
-NOW(),
-NOW());
-
-select * from users;
-====================================================
-UNIQUE
-
-Run
-==================================================
-
-delete from users; 
-====================================================
-CASCADE
-
-Insert more users and user_game_states then
-Run
-==================================================
-delete from user_game_states where id = x
-====================================================
-We can delete
-
-Run  with an user_id already used
-==================================================
-INSERT INTO `sotd`.`user_game_state`
-(`user_id`,
-`current_level`,
-`current_score`)
-VALUES
-(1,
-1,
-0);
-
-select * from user_game_state
-====================================================
-UNIQUE
-
-Try with Start up where foreign key is not unique
-====================================================
-========================================================================================================
-====================================================
-========================================================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 PROBLEM: NPC probably shouldn't detect enemies through walls
 PROBLEM: NPC gets stuck in square loop perhaps depending on the direction you approach/leave him
 

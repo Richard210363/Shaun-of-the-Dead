@@ -12,7 +12,6 @@
     <Name>Shaun of the Dead</Name>
     <RootNamespace>Shaun of the Dead</RootNamespace>
     <InterpreterId>Global|PythonCore|3.7</InterpreterId>
-    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
